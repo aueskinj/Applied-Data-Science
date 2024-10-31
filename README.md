@@ -42,11 +42,11 @@ pip install -r requirements.txt
 To view and run the notebooks:
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/applied-data-science-umich.git
+   git clone https://github.com/aueskinj/applied-data-science.git
    ```
 2. Navigate to the folder:
    ```bash
-   cd applied-data-science-umich
+   cd applied-data-science
    ```
 3. Start Jupyter Notebook:
    ```bash
