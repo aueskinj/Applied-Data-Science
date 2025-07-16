@@ -1,0 +1,25 @@
+# Core Huawei AI framework
+mindspore
+
+# Data processing & numeric computation
+numpy
+pandas
+scikit-learn
+imblearn
+
+# Visualization
+matplotlib
+seaborn
+missingno
+wordcloud
+
+# NLP support
+nltk
+
+# Boosted ML models
+xgboost
+ipykernel 
+jupyter
+
+# (Optional) TensorFlow for HCIA‑AI exercises
+tensorflow
