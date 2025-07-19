@@ -1,0 +1,2897 @@
+# ===============================================================================================
+# The following shows the last analyze fail log message.
+# ===============================================================================================
+
+----------------------------------------------------
+- Caught exception:
+----------------------------------------------------
+MaxPoolGradGrad does not support on CPU!
+
+----------------------------------------------------
+- C++ Call Stack: (For framework developers)
+----------------------------------------------------
+mindspore\ops\grad\grad_nn_ops.cc:2539 mindspore::expander::bprop::<lambda_4ff18590b9bb36108d1a1ef774903682>::operator ()
+
+----------------------------------------------------
+- The Traceback of Net Construct Code:
+----------------------------------------------------
+
+Bprop "MaxPoolGrad" encounter a problem: [MaxPoolGradGrad does not support on CPU!
+
+----------------------------------------------------
+- C++ Call Stack: (For framework developers)
+----------------------------------------------------
+mindspore\ccsrc\frontend\expander\bprop\bprop_meta_func_graph.cc:47 mindspore::expander::bprop::BpropMetaFuncGraph::GenerateFuncGraph
+mindspore\ops\grad\grad_nn_ops.cc:2539 mindspore::expander::bprop::<lambda_4ff18590b9bb36108d1a1ef774903682>::operator ()
+]
+----------------------------------------------------
+- The Traceback of Net Construct Code:
+----------------------------------------------------
+
+# ===============================================================================================
+# The following shows the IR when the function graphs evaluation fails to help locate the problem.
+# You can search the last ------------------------> to the node which is evaluated failure.
+# Refer to https://www.mindspore.cn/search?inputValue=analyze_fail.ir to get more instructions.
+# ===============================================================================================
+
+# IR entry: @bprop_builder_1694
+# Total subgraphs: 76
+
+# Total params: 18
+# Params:
+%para1_: <null>
+%para2_: <null>
+%para3_: <null>
+%para4_: <null>
+%para5_: <null>
+%para6_: <null>
+%para7_: <null>
+%para8_: <null>
+%para9_: <null>
+%para10_: <null>
+%para11_: <null>
+%para12_: <null>
+%para13_: <null>
+%para14_: <null>
+%para15_: <null>
+%para16_: <null>
+%para17_: <null>
+%para18_: <null>
+
+subgraph attr:
+subgraph instance: bprop_builder_1694 : 0000017084877D90
+
+subgraph @bprop_builder_1694() {
+  %0(CNode_1717) = call @grad_top_1718(%para1_Parameter_1695, %para2_Parameter_1696, %para3_Parameter_1697, %para4_Parameter_1698, %para5_Parameter_1699, %para6_Parameter_1700, %para7_Parameter_1701, %para8_Parameter_1702, %para9_Parameter_1703, %para10_Parameter_1704)
+      : (<Tensor[Float32], (32, 1, 28, 28)>, <Tensor[Int32], (32)>, <Ref[Tensor[Float32]], (6, 1, 5, 5)>, <Ref[Tensor[Float32]], (16, 6, 5, 5)>, <Ref[Tensor[Float32]], (120, 256)>, <Ref[Tensor[Float32]], (120)>, <Ref[Tensor[Float32]], (84, 120)>, <Ref[Tensor[Float32]], (84)>, <Ref[Tensor[Float32]], (10, 84)>, <Ref[Tensor[Float32]], (10)>) -> (<Tuple[Tuple[Tensor[Float32]*8],Func], TupleShape(TupleShape((6, 1, 5, 5), (16, 6, 5, 5), (120, 256), (120), (84, 120), (84), (10, 84), (10)), NoShape)>)
+      #scope: (Default)
+  %1(CNode_1719) = TupleGetItem(%0, I64(1))
+      : (<Tuple[Tuple[Tensor[Float32]*8],Func], TupleShape(TupleShape((6, 1, 5, 5), (16, 6, 5, 5), (120, 256), (120), (84, 120), (84), (10, 84), (10)), NoShape)>, <Int64, NoShape>) -> (<Func, NoShape>)
+      #scope: (Default)
+  %2(CNode_1720) = MakeTuple(%para11_Parameter_1705, %para12_Parameter_1706, %para13_Parameter_1707, %para14_Parameter_1708, %para15_Parameter_1709, %para16_Parameter_1710, %para17_Parameter_1711, %para18_Parameter_1712)
+      : (<Tensor[Float32], (6, 1, 5, 5)>, <Tensor[Float32], (16, 6, 5, 5)>, <Tensor[Float32], (120, 256)>, <Tensor[Float32], (120)>, <Tensor[Float32], (84, 120)>, <Tensor[Float32], (84)>, <Tensor[Float32], (10, 84)>, <Tensor[Float32], (10)>) -> (<Tuple[Tensor[Float32]*8], TupleShape((6, 1, 5, 5), (16, 6, 5, 5), (120, 256), (120), (84, 120), (84), (10, 84), (10))>)
+      #scope: (Default)
+
+#------------------------> 0
+  %3(CNode_1721) = %1(%2)
+      : (<Tuple[Tensor[Float32]*8], TupleShape((6, 1, 5, 5), (16, 6, 5, 5), (120, 256), (120), (84, 120), (84), (10, 84), (10))>) -> (<null>)
+      #scope: (Default)
+  %4(CNode_1722) = TupleGetItem(%3, I64(1))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %5(CNode_1723) = TupleGetItem(%3, I64(2))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %6(CNode_1724) = TupleGetItem(%3, I64(3))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %7(CNode_1725) = TupleGetItem(%3, I64(4))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %8(CNode_1726) = TupleGetItem(%3, I64(5))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %9(CNode_1727) = TupleGetItem(%3, I64(6))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %10(CNode_1728) = TupleGetItem(%3, I64(7))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %11(CNode_1729) = TupleGetItem(%3, I64(8))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %12(CNode_1730) = TupleGetItem(%3, I64(9))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %13(CNode_1731) = TupleGetItem(%3, I64(10))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %14(CNode_1732) = MakeTuple(%4, %5, %6, %7, %8, %9, %10, %11, %12, %13)
+      : (<null>, <null>, <null>, <null>, <null>, <null>, <null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%14)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @bprop_builder_1694:CNode_1733{[0]: ValueNode<Primitive> Return, [1]: CNode_1732}
+
+
+subgraph attr:
+back_prop_entry: 1
+subgraph instance: ?grad_top_1713 : 0000017084879EF0
+
+subgraph @?grad_top_1713 parent: [subgraph @grad_top_1718](%para0_Parameter_1714) {
+  %0(CNode_1734) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_1735) = call @Conv2D_1736(%para_Parameter_1737, %para_conv1.weight)
+      : (<Tensor[Float32], (32, 1, 28, 28)>, <Ref[Tensor[Float32]], (6, 1, 5, 5)>) -> (<Tuple[Tensor[Float32],Func], TupleShape((32, 6, 24, 24), NoShape)>)
+      #scope: (Default)
+  %2(CNode_1738) = TupleGetItem(%1, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 6, 24, 24), NoShape)>, <Int64, NoShape>) -> (<Func, NoShape>)
+      #scope: (Default)
+  %3(CNode_1739) = TupleGetItem(%1, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 6, 24, 24), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (32, 6, 24, 24)>)
+      #scope: (Default)
+  %4(CNode_1740) = call @PrimFunc_ReLU_1741(%3)
+      : (<Tensor[Float32], (32, 6, 24, 24)>) -> (<Tuple[Tensor[Float32],Func], TupleShape((32, 6, 24, 24), NoShape)>)
+      #scope: (Default)
+  %5(CNode_1742) = TupleGetItem(%4, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 6, 24, 24), NoShape)>, <Int64, NoShape>) -> (<Func, NoShape>)
+      #scope: (Default)
+  %6(CNode_1743) = TupleGetItem(%4, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 6, 24, 24), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (32, 6, 24, 24)>)
+      #scope: (Default)
+  %7(CNode_1744) = call @MaxPool_1745(%6)
+      : (<Tensor[Float32], (32, 6, 24, 24)>) -> (<Tuple[Tensor[Float32],Func], TupleShape((32, 6, 12, 12), NoShape)>)
+      #scope: (Default)
+  %8(CNode_1746) = TupleGetItem(%7, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 6, 12, 12), NoShape)>, <Int64, NoShape>) -> (<Func, NoShape>)
+      #scope: (Default)
+  %9(CNode_1747) = TupleGetItem(%7, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 6, 12, 12), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (32, 6, 12, 12)>)
+      #scope: (Default)
+  %10(CNode_1748) = call @Conv2D_1749(%9, %para_conv2.weight)
+      : (<Tensor[Float32], (32, 6, 12, 12)>, <Ref[Tensor[Float32]], (16, 6, 5, 5)>) -> (<Tuple[Tensor[Float32],Func], TupleShape((32, 16, 8, 8), NoShape)>)
+      #scope: (Default)
+  %11(CNode_1750) = TupleGetItem(%10, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 16, 8, 8), NoShape)>, <Int64, NoShape>) -> (<Func, NoShape>)
+      #scope: (Default)
+  %12(CNode_1751) = TupleGetItem(%10, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 16, 8, 8), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (32, 16, 8, 8)>)
+      #scope: (Default)
+  %13(CNode_1752) = call @PrimFunc_ReLU_1753(%12)
+      : (<Tensor[Float32], (32, 16, 8, 8)>) -> (<Tuple[Tensor[Float32],Func], TupleShape((32, 16, 8, 8), NoShape)>)
+      #scope: (Default)
+  %14(CNode_1754) = TupleGetItem(%13, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 16, 8, 8), NoShape)>, <Int64, NoShape>) -> (<Func, NoShape>)
+      #scope: (Default)
+  %15(CNode_1755) = TupleGetItem(%13, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 16, 8, 8), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (32, 16, 8, 8)>)
+      #scope: (Default)
+  %16(CNode_1756) = call @MaxPool_1757(%15)
+      : (<Tensor[Float32], (32, 16, 8, 8)>) -> (<Tuple[Tensor[Float32],Func], TupleShape((32, 16, 4, 4), NoShape)>)
+      #scope: (Default)
+  %17(CNode_1758) = TupleGetItem(%16, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 16, 4, 4), NoShape)>, <Int64, NoShape>) -> (<Func, NoShape>)
+      #scope: (Default)
+  %18(CNode_1759) = TupleGetItem(%16, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 16, 4, 4), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (32, 16, 4, 4)>)
+      #scope: (Default)
+  %19(CNode_1760) = call @PrimFunc_Flatten_1761(%18)
+      : (<Tensor[Float32], (32, 16, 4, 4)>) -> (<Tuple[Tensor[Float32],Func], TupleShape((32, 256), NoShape)>)
+      #scope: (Default)
+  %20(CNode_1762) = TupleGetItem(%19, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 256), NoShape)>, <Int64, NoShape>) -> (<Func, NoShape>)
+      #scope: (Default)
+  %21(CNode_1763) = TupleGetItem(%19, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 256), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (32, 256)>)
+      #scope: (Default)
+  %22(CNode_1764) = call @PrimFunc_MatMul_1765(%21, %para_fc1.weight, Bool(0), Bool(1))
+      : (<Tensor[Float32], (32, 256)>, <Ref[Tensor[Float32]], (120, 256)>, <Bool, NoShape>, <Bool, NoShape>) -> (<Tuple[Tensor[Float32],Func], TupleShape((32, 120), NoShape)>)
+      #scope: (Default)
+  %23(CNode_1766) = TupleGetItem(%22, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 120), NoShape)>, <Int64, NoShape>) -> (<Func, NoShape>)
+      #scope: (Default)
+  %24(CNode_1767) = TupleGetItem(%22, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 120), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (32, 120)>)
+      #scope: (Default)
+  %25(CNode_1768) = call @PrimFunc_BiasAdd_1769(%24, %para_fc1.bias, I64(0))
+      : (<Tensor[Float32], (32, 120)>, <Ref[Tensor[Float32]], (120)>, <Int64, NoShape>) -> (<Tuple[Tensor[Float32],Func], TupleShape((32, 120), NoShape)>)
+      #scope: (Default)
+  %26(CNode_1770) = TupleGetItem(%25, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 120), NoShape)>, <Int64, NoShape>) -> (<Func, NoShape>)
+      #scope: (Default)
+  %27(CNode_1771) = TupleGetItem(%25, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 120), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (32, 120)>)
+      #scope: (Default)
+  %28(CNode_1772) = call @PrimFunc_ReLU_1773(%27)
+      : (<Tensor[Float32], (32, 120)>) -> (<Tuple[Tensor[Float32],Func], TupleShape((32, 120), NoShape)>)
+      #scope: (Default)
+  %29(CNode_1774) = TupleGetItem(%28, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 120), NoShape)>, <Int64, NoShape>) -> (<Func, NoShape>)
+      #scope: (Default)
+  %30(CNode_1775) = TupleGetItem(%28, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 120), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (32, 120)>)
+      #scope: (Default)
+  %31(CNode_1776) = call @PrimFunc_MatMul_1777(%30, %para_fc2.weight, Bool(0), Bool(1))
+      : (<Tensor[Float32], (32, 120)>, <Ref[Tensor[Float32]], (84, 120)>, <Bool, NoShape>, <Bool, NoShape>) -> (<Tuple[Tensor[Float32],Func], TupleShape((32, 84), NoShape)>)
+      #scope: (Default)
+  %32(CNode_1778) = TupleGetItem(%31, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 84), NoShape)>, <Int64, NoShape>) -> (<Func, NoShape>)
+      #scope: (Default)
+  %33(CNode_1779) = TupleGetItem(%31, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 84), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (32, 84)>)
+      #scope: (Default)
+  %34(CNode_1780) = call @PrimFunc_BiasAdd_1781(%33, %para_fc2.bias, I64(0))
+      : (<Tensor[Float32], (32, 84)>, <Ref[Tensor[Float32]], (84)>, <Int64, NoShape>) -> (<Tuple[Tensor[Float32],Func], TupleShape((32, 84), NoShape)>)
+      #scope: (Default)
+  %35(CNode_1782) = TupleGetItem(%34, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 84), NoShape)>, <Int64, NoShape>) -> (<Func, NoShape>)
+      #scope: (Default)
+  %36(CNode_1783) = TupleGetItem(%34, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 84), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (32, 84)>)
+      #scope: (Default)
+  %37(CNode_1784) = call @PrimFunc_ReLU_1785(%36)
+      : (<Tensor[Float32], (32, 84)>) -> (<Tuple[Tensor[Float32],Func], TupleShape((32, 84), NoShape)>)
+      #scope: (Default)
+  %38(CNode_1786) = TupleGetItem(%37, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 84), NoShape)>, <Int64, NoShape>) -> (<Func, NoShape>)
+      #scope: (Default)
+  %39(CNode_1787) = TupleGetItem(%37, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 84), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (32, 84)>)
+      #scope: (Default)
+  %40(CNode_1788) = call @PrimFunc_MatMul_1789(%39, %para_fc3.weight, Bool(0), Bool(1))
+      : (<Tensor[Float32], (32, 84)>, <Ref[Tensor[Float32]], (10, 84)>, <Bool, NoShape>, <Bool, NoShape>) -> (<Tuple[Tensor[Float32],Func], TupleShape((32, 10), NoShape)>)
+      #scope: (Default)
+  %41(CNode_1790) = TupleGetItem(%40, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 10), NoShape)>, <Int64, NoShape>) -> (<Func, NoShape>)
+      #scope: (Default)
+  %42(CNode_1791) = TupleGetItem(%40, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 10), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (32, 10)>)
+      #scope: (Default)
+  %43(CNode_1792) = call @PrimFunc_BiasAdd_1793(%42, %para_fc3.bias, I64(0))
+      : (<Tensor[Float32], (32, 10)>, <Ref[Tensor[Float32]], (10)>, <Int64, NoShape>) -> (<Tuple[Tensor[Float32],Func], TupleShape((32, 10), NoShape)>)
+      #scope: (Default)
+  %44(CNode_1794) = TupleGetItem(%43, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 10), NoShape)>, <Int64, NoShape>) -> (<Func, NoShape>)
+      #scope: (Default)
+  %45(CNode_1795) = TupleGetItem(%43, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 10), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (32, 10)>)
+      #scope: (Default)
+  %46(CNode_1796) = call @SparseSoftmaxCrossEntropyWithLogits_1797(%45, %para_Parameter_1798)
+      : (<Tensor[Float32], (32, 10)>, <Tensor[Int32], (32)>) -> (<Tuple[Tensor[Float32],Func], TupleShape((32, 10), NoShape)>)
+      #scope: (Bprop/gradSparseSoftmaxCrossEntropyWithLogits)
+  %47(CNode_1799) = TupleGetItem(%46, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 10), NoShape)>, <Int64, NoShape>) -> (<Func, NoShape>)
+      #scope: (Bprop/gradSparseSoftmaxCrossEntropyWithLogits)
+  %48(CNode_1800) = TupleGetItem(%46, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 10), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (32, 10)>)
+      #scope: (Bprop/gradSparseSoftmaxCrossEntropyWithLogits)
+  %49(CNode_1801) = call @PrimFunc_OnesLike_1802(Tensor(shape=[], dtype=Float32, value=<uninitialized>))
+      : (<Tensor[Float32], ()>) -> (<Tuple[Tensor[Float32],Func], TupleShape((), NoShape)>)
+      #scope: (Default)
+  %50(CNode_1803) = TupleGetItem(%49, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], ()>)
+      #scope: (Default)
+  %51(CNode_1804) = call @PrimFunc_Mul_1805(%48, %50)
+      : (<Tensor[Float32], (32, 10)>, <Tensor[Float32], ()>) -> (<Tuple[Tensor[Float32],Func], TupleShape((32, 10), NoShape)>)
+      #scope: (Bprop/gradSparseSoftmaxCrossEntropyWithLogits)
+  %52(CNode_1806) = TupleGetItem(%51, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 10), NoShape)>, <Int64, NoShape>) -> (<Func, NoShape>)
+      #scope: (Bprop/gradSparseSoftmaxCrossEntropyWithLogits)
+  %53(CNode_1807) = TupleGetItem(%51, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 10), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (32, 10)>)
+      #scope: (Bprop/gradSparseSoftmaxCrossEntropyWithLogits)
+  %54(CNode_1808) = call @PrimFunc_MatMul_1809(%53, %para_fc3.weight, Bool(0), Bool(0))
+      : (<Tensor[Float32], (32, 10)>, <Ref[Tensor[Float32]], (10, 84)>, <Bool, NoShape>, <Bool, NoShape>) -> (<Tuple[Tensor[Float32],Func], TupleShape((32, 84), NoShape)>)
+      #scope: (Bprop/gradMatMul)
+  %55(CNode_1810) = TupleGetItem(%54, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 84), NoShape)>, <Int64, NoShape>) -> (<Func, NoShape>)
+      #scope: (Bprop/gradMatMul)
+  %56(CNode_1811) = TupleGetItem(%54, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 84), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (32, 84)>)
+      #scope: (Bprop/gradMatMul)
+  %57(CNode_1812) = call @PrimFunc_ReluGrad_1813(%56, %39)
+      : (<Tensor[Float32], (32, 84)>, <Tensor[Float32], (32, 84)>) -> (<Tuple[Tensor[Float32],Func], TupleShape((32, 84), NoShape)>)
+      #scope: (Bprop/gradReLU)
+  %58(CNode_1814) = TupleGetItem(%57, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 84), NoShape)>, <Int64, NoShape>) -> (<Func, NoShape>)
+      #scope: (Bprop/gradReLU)
+  %59(CNode_1815) = TupleGetItem(%57, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 84), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (32, 84)>)
+      #scope: (Bprop/gradReLU)
+  %60(CNode_1816) = call @PrimFunc_MatMul_1817(%59, %para_fc2.weight, Bool(0), Bool(0))
+      : (<Tensor[Float32], (32, 84)>, <Ref[Tensor[Float32]], (84, 120)>, <Bool, NoShape>, <Bool, NoShape>) -> (<Tuple[Tensor[Float32],Func], TupleShape((32, 120), NoShape)>)
+      #scope: (Bprop/gradMatMul)
+  %61(CNode_1818) = TupleGetItem(%60, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 120), NoShape)>, <Int64, NoShape>) -> (<Func, NoShape>)
+      #scope: (Bprop/gradMatMul)
+  %62(CNode_1819) = TupleGetItem(%60, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 120), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (32, 120)>)
+      #scope: (Bprop/gradMatMul)
+  %63(CNode_1820) = call @PrimFunc_ReluGrad_1821(%62, %30)
+      : (<Tensor[Float32], (32, 120)>, <Tensor[Float32], (32, 120)>) -> (<Tuple[Tensor[Float32],Func], TupleShape((32, 120), NoShape)>)
+      #scope: (Bprop/gradReLU)
+  %64(CNode_1822) = TupleGetItem(%63, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 120), NoShape)>, <Int64, NoShape>) -> (<Func, NoShape>)
+      #scope: (Bprop/gradReLU)
+  %65(CNode_1823) = TupleGetItem(%63, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 120), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (32, 120)>)
+      #scope: (Bprop/gradReLU)
+  %66(CNode_1824) = call @PrimFunc_MatMul_1825(%65, %para_fc1.weight, Bool(0), Bool(0))
+      : (<Tensor[Float32], (32, 120)>, <Ref[Tensor[Float32]], (120, 256)>, <Bool, NoShape>, <Bool, NoShape>) -> (<Tuple[Tensor[Float32],Func], TupleShape((32, 256), NoShape)>)
+      #scope: (Bprop/gradMatMul)
+  %67(CNode_1826) = TupleGetItem(%66, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 256), NoShape)>, <Int64, NoShape>) -> (<Func, NoShape>)
+      #scope: (Bprop/gradMatMul)
+  %68(CNode_1827) = TupleGetItem(%66, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 256), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (32, 256)>)
+      #scope: (Bprop/gradMatMul)
+  %69(CNode_1828) = call @PrimFunc_Reshape_1829(%68, (I64(32), I64(16), I64(4), I64(4)))
+      : (<Tensor[Float32], (32, 256)>, <Tuple[Int64*4], TupleShape(NoShape, NoShape, NoShape, NoShape)>) -> (<Tuple[Tensor[Float32],Func], TupleShape((32, 16, 4, 4), NoShape)>)
+      #scope: (Bprop/gradFlatten)
+  %70(CNode_1830) = TupleGetItem(%69, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 16, 4, 4), NoShape)>, <Int64, NoShape>) -> (<Func, NoShape>)
+      #scope: (Bprop/gradFlatten)
+  %71(CNode_1831) = TupleGetItem(%69, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 16, 4, 4), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (32, 16, 4, 4)>)
+      #scope: (Bprop/gradFlatten)
+  %72(CNode_1832) = call @MaxPoolGrad_1833(%15, %18, %71)
+      : (<Tensor[Float32], (32, 16, 8, 8)>, <Tensor[Float32], (32, 16, 4, 4)>, <Tensor[Float32], (32, 16, 4, 4)>) -> (<Tuple[Tensor[Float32],Func], TupleShape((32, 16, 8, 8), NoShape)>)
+      #scope: (Bprop/gradMaxPool)
+  %73(CNode_1834) = TupleGetItem(%72, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 16, 8, 8), NoShape)>, <Int64, NoShape>) -> (<Func, NoShape>)
+      #scope: (Bprop/gradMaxPool)
+  %74(CNode_1835) = TupleGetItem(%72, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 16, 8, 8), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (32, 16, 8, 8)>)
+      #scope: (Bprop/gradMaxPool)
+  %75(CNode_1836) = call @PrimFunc_ReluGrad_1837(%74, %15)
+      : (<Tensor[Float32], (32, 16, 8, 8)>, <Tensor[Float32], (32, 16, 8, 8)>) -> (<Tuple[Tensor[Float32],Func], TupleShape((32, 16, 8, 8), NoShape)>)
+      #scope: (Bprop/gradReLU)
+  %76(CNode_1838) = TupleGetItem(%75, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 16, 8, 8), NoShape)>, <Int64, NoShape>) -> (<Func, NoShape>)
+      #scope: (Bprop/gradReLU)
+  %77(CNode_1839) = TupleGetItem(%75, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 16, 8, 8), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (32, 16, 8, 8)>)
+      #scope: (Bprop/gradReLU)
+  %78(CNode_1840) = call @Conv2DBackpropInput_1841(%77, %para_conv2.weight, (I64(32), I64(6), I64(12), I64(12)))
+      : (<Tensor[Float32], (32, 16, 8, 8)>, <Ref[Tensor[Float32]], (16, 6, 5, 5)>, <Tuple[Int64*4], TupleShape(NoShape, NoShape, NoShape, NoShape)>) -> (<Tuple[Tensor[Float32],Func], TupleShape((32, 6, 12, 12), NoShape)>)
+      #scope: (Bprop/gradConv2D)
+  %79(CNode_1842) = TupleGetItem(%78, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 6, 12, 12), NoShape)>, <Int64, NoShape>) -> (<Func, NoShape>)
+      #scope: (Bprop/gradConv2D)
+  %80(CNode_1843) = TupleGetItem(%78, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 6, 12, 12), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (32, 6, 12, 12)>)
+      #scope: (Bprop/gradConv2D)
+  %81(CNode_1844) = call @MaxPoolGrad_1845(%6, %9, %80)
+      : (<Tensor[Float32], (32, 6, 24, 24)>, <Tensor[Float32], (32, 6, 12, 12)>, <Tensor[Float32], (32, 6, 12, 12)>) -> (<Tuple[Tensor[Float32],Func], TupleShape((32, 6, 24, 24), NoShape)>)
+      #scope: (Bprop/gradMaxPool)
+  %82(CNode_1846) = TupleGetItem(%81, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 6, 24, 24), NoShape)>, <Int64, NoShape>) -> (<Func, NoShape>)
+      #scope: (Bprop/gradMaxPool)
+  %83(CNode_1847) = TupleGetItem(%81, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 6, 24, 24), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (32, 6, 24, 24)>)
+      #scope: (Bprop/gradMaxPool)
+  %84(CNode_1848) = call @PrimFunc_ReluGrad_1849(%83, %6)
+      : (<Tensor[Float32], (32, 6, 24, 24)>, <Tensor[Float32], (32, 6, 24, 24)>) -> (<Tuple[Tensor[Float32],Func], TupleShape((32, 6, 24, 24), NoShape)>)
+      #scope: (Bprop/gradReLU)
+  %85(CNode_1850) = TupleGetItem(%84, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 6, 24, 24), NoShape)>, <Int64, NoShape>) -> (<Func, NoShape>)
+      #scope: (Bprop/gradReLU)
+  %86(CNode_1851) = TupleGetItem(%84, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((32, 6, 24, 24), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (32, 6, 24, 24)>)
+      #scope: (Bprop/gradReLU)
+  %87(CNode_1852) = call @Conv2DBackpropFilter_1853(%86, %para_Parameter_1737, (I64(6), I64(1), I64(5), I64(5)))
+      : (<Tensor[Float32], (32, 6, 24, 24)>, <Tensor[Float32], (32, 1, 28, 28)>, <Tuple[Int64*4], TupleShape(NoShape, NoShape, NoShape, NoShape)>) -> (<Tuple[Tensor[Float32],Func], TupleShape((6, 1, 5, 5), NoShape)>)
+      #scope: (Bprop/gradConv2D)
+  %88(CNode_1854) = TupleGetItem(%87, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((6, 1, 5, 5), NoShape)>, <Int64, NoShape>) -> (<Func, NoShape>)
+      #scope: (Bprop/gradConv2D)
+  %89(CNode_1855) = TupleGetItem(%87, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((6, 1, 5, 5), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (6, 1, 5, 5)>)
+      #scope: (Bprop/gradConv2D)
+  %90(CNode_1856) = call @Conv2DBackpropFilter_1857(%77, %9, (I64(16), I64(6), I64(5), I64(5)))
+      : (<Tensor[Float32], (32, 16, 8, 8)>, <Tensor[Float32], (32, 6, 12, 12)>, <Tuple[Int64*4], TupleShape(NoShape, NoShape, NoShape, NoShape)>) -> (<Tuple[Tensor[Float32],Func], TupleShape((16, 6, 5, 5), NoShape)>)
+      #scope: (Bprop/gradConv2D)
+  %91(CNode_1858) = TupleGetItem(%90, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((16, 6, 5, 5), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (16, 6, 5, 5)>)
+      #scope: (Bprop/gradConv2D)
+  %92(CNode_1859) = call @PrimFunc_MatMul_1860(%65, %21, Bool(1), Bool(0))
+      : (<Tensor[Float32], (32, 120)>, <Tensor[Float32], (32, 256)>, <Bool, NoShape>, <Bool, NoShape>) -> (<Tuple[Tensor[Float32],Func], TupleShape((120, 256), NoShape)>)
+      #scope: (Bprop/gradMatMul)
+  %93(CNode_1861) = TupleGetItem(%92, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((120, 256), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (120, 256)>)
+      #scope: (Bprop/gradMatMul)
+  %94(CNode_1862) = call @PrimFunc_BiasAddGrad_1863(%65, I64(0))
+      : (<Tensor[Float32], (32, 120)>, <Int64, NoShape>) -> (<Tuple[Tensor[Float32],Func], TupleShape((120), NoShape)>)
+      #scope: (Bprop/gradBiasAdd)
+  %95(CNode_1864) = TupleGetItem(%94, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((120), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (120)>)
+      #scope: (Bprop/gradBiasAdd)
+  %96(CNode_1865) = call @PrimFunc_MatMul_1866(%59, %30, Bool(1), Bool(0))
+      : (<Tensor[Float32], (32, 84)>, <Tensor[Float32], (32, 120)>, <Bool, NoShape>, <Bool, NoShape>) -> (<Tuple[Tensor[Float32],Func], TupleShape((84, 120), NoShape)>)
+      #scope: (Bprop/gradMatMul)
+  %97(CNode_1867) = TupleGetItem(%96, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((84, 120), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (84, 120)>)
+      #scope: (Bprop/gradMatMul)
+  %98(CNode_1868) = call @PrimFunc_BiasAddGrad_1869(%59, I64(0))
+      : (<Tensor[Float32], (32, 84)>, <Int64, NoShape>) -> (<Tuple[Tensor[Float32],Func], TupleShape((84), NoShape)>)
+      #scope: (Bprop/gradBiasAdd)
+  %99(CNode_1870) = TupleGetItem(%98, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((84), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (84)>)
+      #scope: (Bprop/gradBiasAdd)
+  %100(CNode_1871) = call @PrimFunc_MatMul_1872(%53, %39, Bool(1), Bool(0))
+      : (<Tensor[Float32], (32, 10)>, <Tensor[Float32], (32, 84)>, <Bool, NoShape>, <Bool, NoShape>) -> (<Tuple[Tensor[Float32],Func], TupleShape((10, 84), NoShape)>)
+      #scope: (Bprop/gradMatMul)
+  %101(CNode_1873) = TupleGetItem(%100, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((10, 84), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (10, 84)>)
+      #scope: (Bprop/gradMatMul)
+  %102(CNode_1874) = call @PrimFunc_BiasAddGrad_1875(%53, I64(0))
+      : (<Tensor[Float32], (32, 10)>, <Int64, NoShape>) -> (<Tuple[Tensor[Float32],Func], TupleShape((10), NoShape)>)
+      #scope: (Bprop/gradBiasAdd)
+  %103(CNode_1876) = TupleGetItem(%102, I64(0))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((10), NoShape)>, <Int64, NoShape>) -> (<Tensor[Float32], (10)>)
+      #scope: (Bprop/gradBiasAdd)
+  %104(CNode_1877) = MakeTupleGradient_make_tuple_gradient(%89, %91, %93, %95, %97, %99, %101, %103)
+      : (<Tensor[Float32], (6, 1, 5, 5)>, <Tensor[Float32], (16, 6, 5, 5)>, <Tensor[Float32], (120, 256)>, <Tensor[Float32], (120)>, <Tensor[Float32], (84, 120)>, <Tensor[Float32], (84)>, <Tensor[Float32], (10, 84)>, <Tensor[Float32], (10)>) -> (<Tuple[Tuple[Tensor[Float32]*8],Func], TupleShape(TupleShape((6, 1, 5, 5), (16, 6, 5, 5), (120, 256), (120), (84, 120), (84), (10, 84), (10)), NoShape)>)
+      #scope: (Default)
+  %105(CNode_1878) = TupleGetItem(%104, I64(1))
+      : (<Tuple[Tuple[Tensor[Float32]*8],Func], TupleShape(TupleShape((6, 1, 5, 5), (16, 6, 5, 5), (120, 256), (120), (84, 120), (84), (10, 84), (10)), NoShape)>, <Int64, NoShape>) -> (<Func, NoShape>)
+      #scope: (Default)
+  %106(CNode_1879) = %105(%para0_Parameter_1714)
+      : (<Tuple[Tensor[Float32]*8], TupleShape((6, 1, 5, 5), (16, 6, 5, 5), (120, 256), (120), (84, 120), (84), (10, 84), (10))>) -> (<Tuple[Object:EnvType,Tensor[Float32]*8], TupleShape(NoShape, (6, 1, 5, 5), (16, 6, 5, 5), (120, 256), (120), (84, 120), (84), (10, 84), (10))>)
+      #scope: (Default)
+  %107(CNode_1880) = TupleGetItem(%106, I64(1)) cnode_attrs: {check_complex: Bool(1)}
+      : (<Tuple[Object:EnvType,Tensor[Float32]*8], TupleShape(NoShape, (6, 1, 5, 5), (16, 6, 5, 5), (120, 256), (120), (84, 120), (84), (10, 84), (10))>, <Int64, NoShape>) -> (<Tensor[Float32], (6, 1, 5, 5)>)
+      #scope: (Default)
+  %108(CNode_1881) = %88(%107)
+      : (<Tensor[Float32], (6, 1, 5, 5)>) -> (<Tuple[Object:EnvType,Tensor[Float32]*2,Tuple[Int64*4]], TupleShape(NoShape, (32, 6, 24, 24), (32, 1, 28, 28), TupleShape(NoShape, NoShape, NoShape, NoShape))>)
+      #scope: (Bprop/gradConv2D)
+  %109(CNode_1882) = TupleGetItem(%108, I64(1)) cnode_attrs: {check_complex: Bool(1)}
+      : (<Tuple[Object:EnvType,Tensor[Float32]*2,Tuple[Int64*4]], TupleShape(NoShape, (32, 6, 24, 24), (32, 1, 28, 28), TupleShape(NoShape, NoShape, NoShape, NoShape))>, <Int64, NoShape>) -> (<Tensor[Float32], (32, 6, 24, 24)>)
+      #scope: (Bprop/gradConv2D)
+  %110(CNode_1883) = %85(%109)
+      : (<Tensor[Float32], (32, 6, 24, 24)>) -> (<Tuple[Object:EnvType,Tensor[Float32]*2], TupleShape(NoShape, (32, 6, 24, 24), (32, 6, 24, 24))>)
+      #scope: (Bprop/gradReLU)
+  %111(CNode_1884) = TupleGetItem(%110, I64(1)) cnode_attrs: {check_complex: Bool(1)}
+      : (<Tuple[Object:EnvType,Tensor[Float32]*2], TupleShape(NoShape, (32, 6, 24, 24), (32, 6, 24, 24))>, <Int64, NoShape>) -> (<Tensor[Float32], (32, 6, 24, 24)>)
+      #scope: (Bprop/gradReLU)
+
+#------------------------> 1
+  %112(CNode_1885) = %82(%111)
+      : (<Tensor[Float32], (32, 6, 24, 24)>) -> (<null>)
+      #scope: (Bprop/gradMaxPool)
+  %113(CNode_1886) = TupleGetItem(%112, I64(3)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradMaxPool)
+  %114(CNode_1887) = %79(%113)
+      : (<null>) -> (<null>)
+      #scope: (Bprop/gradConv2D)
+  %115(CNode_1888) = TupleGetItem(%114, I64(1)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradConv2D)
+  %116(CNode_1889) = TupleGetItem(%90, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((16, 6, 5, 5), NoShape)>, <null>) -> (<null>)
+      #scope: (Bprop/gradConv2D)
+  %117(CNode_1890) = TupleGetItem(%106, I64(2)) cnode_attrs: {check_complex: Bool(1)}
+      : (<Tuple[Object:EnvType,Tensor[Float32]*8], TupleShape(NoShape, (6, 1, 5, 5), (16, 6, 5, 5), (120, 256), (120), (84, 120), (84), (10, 84), (10))>, <null>) -> (<null>)
+      #scope: (Default)
+  %118(CNode_1891) = %116(%117)
+      : (<null>) -> (<null>)
+      #scope: (Bprop/gradConv2D)
+  %119(CNode_1892) = TupleGetItem(%118, I64(1)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradConv2D)
+  %120(CNode_1893) = HyperMapPy_hyper_map[add_backward]{fn_leaf: MultitypeFuncGraph_add_backward{(Number, Number), (IOMonad, IOMonad), (EnvType, EnvType), (NoneType, NoneType), (Tensor, Tensor), (CSRTensor, CSRTensor), (UMonad, UMonad), (RowTensor, Tensor), (COOTensor, COOTensor), (CSRTensor, Tuple), (Tuple, CSRTensor), (COOTensor, Tuple), (Tuple, COOTensor), (MapTensor, MapTensor)}}(%115, %119)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Gradients/Bprop/gradReLU)
+  %121(CNode_1894) = %76(%120)
+      : (<null>) -> (<null>)
+      #scope: (Bprop/gradReLU)
+  %122(CNode_1895) = TupleGetItem(%121, I64(1)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradReLU)
+  %123(CNode_1896) = %73(%122)
+      : (<null>) -> (<null>)
+      #scope: (Bprop/gradMaxPool)
+  %124(CNode_1897) = TupleGetItem(%123, I64(3)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradMaxPool)
+  %125(CNode_1898) = %70(%124)
+      : (<null>) -> (<null>)
+      #scope: (Bprop/gradFlatten)
+  %126(CNode_1899) = TupleGetItem(%125, I64(1)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradFlatten)
+  %127(CNode_1900) = %67(%126)
+      : (<null>) -> (<null>)
+      #scope: (Bprop/gradMatMul)
+  %128(CNode_1901) = TupleGetItem(%127, I64(1)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradMatMul)
+  %129(CNode_1902) = TupleGetItem(%92, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((120, 256), NoShape)>, <null>) -> (<null>)
+      #scope: (Bprop/gradMatMul)
+  %130(CNode_1903) = TupleGetItem(%106, I64(3)) cnode_attrs: {check_complex: Bool(1)}
+      : (<Tuple[Object:EnvType,Tensor[Float32]*8], TupleShape(NoShape, (6, 1, 5, 5), (16, 6, 5, 5), (120, 256), (120), (84, 120), (84), (10, 84), (10))>, <null>) -> (<null>)
+      #scope: (Default)
+  %131(CNode_1904) = %129(%130)
+      : (<null>) -> (<null>)
+      #scope: (Bprop/gradMatMul)
+  %132(CNode_1905) = TupleGetItem(%131, I64(1)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradMatMul)
+  %133(CNode_1906) = HyperMapPy_hyper_map[add_backward]{fn_leaf: MultitypeFuncGraph_add_backward{(Number, Number), (IOMonad, IOMonad), (EnvType, EnvType), (NoneType, NoneType), (Tensor, Tensor), (CSRTensor, CSRTensor), (UMonad, UMonad), (RowTensor, Tensor), (COOTensor, COOTensor), (CSRTensor, Tuple), (Tuple, CSRTensor), (COOTensor, Tuple), (Tuple, COOTensor), (MapTensor, MapTensor)}}(%128, %132)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Gradients/Bprop/gradReLU)
+  %134(CNode_1907) = TupleGetItem(%94, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((120), NoShape)>, <null>) -> (<null>)
+      #scope: (Bprop/gradBiasAdd)
+  %135(CNode_1908) = TupleGetItem(%106, I64(4)) cnode_attrs: {check_complex: Bool(1)}
+      : (<Tuple[Object:EnvType,Tensor[Float32]*8], TupleShape(NoShape, (6, 1, 5, 5), (16, 6, 5, 5), (120, 256), (120), (84, 120), (84), (10, 84), (10))>, <null>) -> (<null>)
+      #scope: (Default)
+  %136(CNode_1909) = %134(%135)
+      : (<null>) -> (<null>)
+      #scope: (Bprop/gradBiasAdd)
+  %137(CNode_1910) = TupleGetItem(%136, I64(1)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradBiasAdd)
+  %138(CNode_1911) = HyperMapPy_hyper_map[add_backward]{fn_leaf: MultitypeFuncGraph_add_backward{(Number, Number), (IOMonad, IOMonad), (EnvType, EnvType), (NoneType, NoneType), (Tensor, Tensor), (CSRTensor, CSRTensor), (UMonad, UMonad), (RowTensor, Tensor), (COOTensor, COOTensor), (CSRTensor, Tuple), (Tuple, CSRTensor), (COOTensor, Tuple), (Tuple, COOTensor), (MapTensor, MapTensor)}}(%133, %137)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Gradients/Bprop/gradReLU)
+  %139(CNode_1912) = %64(%138)
+      : (<null>) -> (<null>)
+      #scope: (Bprop/gradReLU)
+  %140(CNode_1913) = TupleGetItem(%139, I64(1)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradReLU)
+  %141(CNode_1914) = %61(%140)
+      : (<null>) -> (<null>)
+      #scope: (Bprop/gradMatMul)
+  %142(CNode_1915) = TupleGetItem(%141, I64(1)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradMatMul)
+  %143(CNode_1916) = TupleGetItem(%96, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((84, 120), NoShape)>, <null>) -> (<null>)
+      #scope: (Bprop/gradMatMul)
+  %144(CNode_1917) = TupleGetItem(%106, I64(5)) cnode_attrs: {check_complex: Bool(1)}
+      : (<Tuple[Object:EnvType,Tensor[Float32]*8], TupleShape(NoShape, (6, 1, 5, 5), (16, 6, 5, 5), (120, 256), (120), (84, 120), (84), (10, 84), (10))>, <null>) -> (<null>)
+      #scope: (Default)
+  %145(CNode_1918) = %143(%144)
+      : (<null>) -> (<null>)
+      #scope: (Bprop/gradMatMul)
+  %146(CNode_1919) = TupleGetItem(%145, I64(1)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradMatMul)
+  %147(CNode_1920) = HyperMapPy_hyper_map[add_backward]{fn_leaf: MultitypeFuncGraph_add_backward{(Number, Number), (IOMonad, IOMonad), (EnvType, EnvType), (NoneType, NoneType), (Tensor, Tensor), (CSRTensor, CSRTensor), (UMonad, UMonad), (RowTensor, Tensor), (COOTensor, COOTensor), (CSRTensor, Tuple), (Tuple, CSRTensor), (COOTensor, Tuple), (Tuple, COOTensor), (MapTensor, MapTensor)}}(%142, %146)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Gradients/Bprop/gradReLU)
+  %148(CNode_1921) = TupleGetItem(%98, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((84), NoShape)>, <null>) -> (<null>)
+      #scope: (Bprop/gradBiasAdd)
+  %149(CNode_1922) = TupleGetItem(%106, I64(6)) cnode_attrs: {check_complex: Bool(1)}
+      : (<Tuple[Object:EnvType,Tensor[Float32]*8], TupleShape(NoShape, (6, 1, 5, 5), (16, 6, 5, 5), (120, 256), (120), (84, 120), (84), (10, 84), (10))>, <null>) -> (<null>)
+      #scope: (Default)
+  %150(CNode_1923) = %148(%149)
+      : (<null>) -> (<null>)
+      #scope: (Bprop/gradBiasAdd)
+  %151(CNode_1924) = TupleGetItem(%150, I64(1)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradBiasAdd)
+  %152(CNode_1925) = HyperMapPy_hyper_map[add_backward]{fn_leaf: MultitypeFuncGraph_add_backward{(Number, Number), (IOMonad, IOMonad), (EnvType, EnvType), (NoneType, NoneType), (Tensor, Tensor), (CSRTensor, CSRTensor), (UMonad, UMonad), (RowTensor, Tensor), (COOTensor, COOTensor), (CSRTensor, Tuple), (Tuple, CSRTensor), (COOTensor, Tuple), (Tuple, COOTensor), (MapTensor, MapTensor)}}(%147, %151)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Gradients/Bprop/gradReLU)
+  %153(CNode_1926) = %58(%152)
+      : (<null>) -> (<null>)
+      #scope: (Bprop/gradReLU)
+  %154(CNode_1927) = TupleGetItem(%153, I64(1)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradReLU)
+  %155(CNode_1928) = %55(%154)
+      : (<null>) -> (<null>)
+      #scope: (Bprop/gradMatMul)
+  %156(CNode_1929) = TupleGetItem(%155, I64(1)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradMatMul)
+  %157(CNode_1930) = TupleGetItem(%100, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((10, 84), NoShape)>, <null>) -> (<null>)
+      #scope: (Bprop/gradMatMul)
+  %158(CNode_1931) = TupleGetItem(%106, I64(7)) cnode_attrs: {check_complex: Bool(1)}
+      : (<Tuple[Object:EnvType,Tensor[Float32]*8], TupleShape(NoShape, (6, 1, 5, 5), (16, 6, 5, 5), (120, 256), (120), (84, 120), (84), (10, 84), (10))>, <null>) -> (<null>)
+      #scope: (Default)
+  %159(CNode_1932) = %157(%158)
+      : (<null>) -> (<null>)
+      #scope: (Bprop/gradMatMul)
+  %160(CNode_1933) = TupleGetItem(%159, I64(1)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradMatMul)
+  %161(CNode_1934) = HyperMapPy_hyper_map[add_backward]{fn_leaf: MultitypeFuncGraph_add_backward{(Number, Number), (IOMonad, IOMonad), (EnvType, EnvType), (NoneType, NoneType), (Tensor, Tensor), (CSRTensor, CSRTensor), (UMonad, UMonad), (RowTensor, Tensor), (COOTensor, COOTensor), (CSRTensor, Tuple), (Tuple, CSRTensor), (COOTensor, Tuple), (Tuple, COOTensor), (MapTensor, MapTensor)}}(%156, %160)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Gradients/Bprop/gradSparseSoftmaxCrossEntropyWithLogits)
+  %162(CNode_1935) = TupleGetItem(%102, I64(1))
+      : (<Tuple[Tensor[Float32],Func], TupleShape((10), NoShape)>, <null>) -> (<null>)
+      #scope: (Bprop/gradBiasAdd)
+  %163(CNode_1936) = TupleGetItem(%106, I64(8)) cnode_attrs: {check_complex: Bool(1)}
+      : (<Tuple[Object:EnvType,Tensor[Float32]*8], TupleShape(NoShape, (6, 1, 5, 5), (16, 6, 5, 5), (120, 256), (120), (84, 120), (84), (10, 84), (10))>, <null>) -> (<null>)
+      #scope: (Default)
+  %164(CNode_1937) = %162(%163)
+      : (<null>) -> (<null>)
+      #scope: (Bprop/gradBiasAdd)
+  %165(CNode_1938) = TupleGetItem(%164, I64(1)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradBiasAdd)
+  %166(CNode_1939) = HyperMapPy_hyper_map[add_backward]{fn_leaf: MultitypeFuncGraph_add_backward{(Number, Number), (IOMonad, IOMonad), (EnvType, EnvType), (NoneType, NoneType), (Tensor, Tensor), (CSRTensor, CSRTensor), (UMonad, UMonad), (RowTensor, Tensor), (COOTensor, COOTensor), (CSRTensor, Tuple), (Tuple, CSRTensor), (COOTensor, Tuple), (Tuple, COOTensor), (MapTensor, MapTensor)}}(%161, %165)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Gradients/Bprop/gradSparseSoftmaxCrossEntropyWithLogits)
+  %167(CNode_1940) = %52(%166)
+      : (<null>) -> (<null>)
+      #scope: (Bprop/gradSparseSoftmaxCrossEntropyWithLogits)
+  %168(CNode_1941) = TupleGetItem(%167, I64(1)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradSparseSoftmaxCrossEntropyWithLogits)
+  %169(CNode_1942) = %47(%168)
+      : (<null>) -> (<null>)
+      #scope: (Bprop/gradSparseSoftmaxCrossEntropyWithLogits)
+  %170(CNode_1943) = TupleGetItem(%169, I64(1))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradSparseSoftmaxCrossEntropyWithLogits)
+  %171(CNode_1944) = %44(%170)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %172(CNode_1945) = TupleGetItem(%171, I64(1)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %173(CNode_1946) = %41(%172)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %174(CNode_1947) = TupleGetItem(%173, I64(1)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %175(CNode_1948) = TupleGetItem(%153, I64(2)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradReLU)
+  %176(CNode_1949) = HyperMapPy_hyper_map[add_backward]{fn_leaf: MultitypeFuncGraph_add_backward{(Number, Number), (IOMonad, IOMonad), (EnvType, EnvType), (NoneType, NoneType), (Tensor, Tensor), (CSRTensor, CSRTensor), (UMonad, UMonad), (RowTensor, Tensor), (COOTensor, COOTensor), (CSRTensor, Tuple), (Tuple, CSRTensor), (COOTensor, Tuple), (Tuple, COOTensor), (MapTensor, MapTensor)}}(%174, %175)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Gradients/Default)
+  %177(CNode_1950) = TupleGetItem(%159, I64(2)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradMatMul)
+  %178(CNode_1951) = HyperMapPy_hyper_map[add_backward]{fn_leaf: MultitypeFuncGraph_add_backward{(Number, Number), (IOMonad, IOMonad), (EnvType, EnvType), (NoneType, NoneType), (Tensor, Tensor), (CSRTensor, CSRTensor), (UMonad, UMonad), (RowTensor, Tensor), (COOTensor, COOTensor), (CSRTensor, Tuple), (Tuple, CSRTensor), (COOTensor, Tuple), (Tuple, COOTensor), (MapTensor, MapTensor)}}(%176, %177)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Gradients/Default)
+  %179(CNode_1952) = %38(%178)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %180(CNode_1953) = TupleGetItem(%179, I64(1))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %181(CNode_1954) = %35(%180)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %182(CNode_1955) = TupleGetItem(%181, I64(1)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %183(CNode_1956) = %32(%182)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %184(CNode_1957) = TupleGetItem(%183, I64(1)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %185(CNode_1958) = TupleGetItem(%139, I64(2)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradReLU)
+  %186(CNode_1959) = HyperMapPy_hyper_map[add_backward]{fn_leaf: MultitypeFuncGraph_add_backward{(Number, Number), (IOMonad, IOMonad), (EnvType, EnvType), (NoneType, NoneType), (Tensor, Tensor), (CSRTensor, CSRTensor), (UMonad, UMonad), (RowTensor, Tensor), (COOTensor, COOTensor), (CSRTensor, Tuple), (Tuple, CSRTensor), (COOTensor, Tuple), (Tuple, COOTensor), (MapTensor, MapTensor)}}(%184, %185)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Gradients/Default)
+  %187(CNode_1960) = TupleGetItem(%145, I64(2)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradMatMul)
+  %188(CNode_1961) = HyperMapPy_hyper_map[add_backward]{fn_leaf: MultitypeFuncGraph_add_backward{(Number, Number), (IOMonad, IOMonad), (EnvType, EnvType), (NoneType, NoneType), (Tensor, Tensor), (CSRTensor, CSRTensor), (UMonad, UMonad), (RowTensor, Tensor), (COOTensor, COOTensor), (CSRTensor, Tuple), (Tuple, CSRTensor), (COOTensor, Tuple), (Tuple, COOTensor), (MapTensor, MapTensor)}}(%186, %187)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Gradients/Default)
+  %189(CNode_1962) = %29(%188)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %190(CNode_1963) = TupleGetItem(%189, I64(1))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %191(CNode_1964) = %26(%190)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %192(CNode_1965) = TupleGetItem(%191, I64(1)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %193(CNode_1966) = %23(%192)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %194(CNode_1967) = TupleGetItem(%193, I64(1))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %195(CNode_1968) = TupleGetItem(%131, I64(2))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradMatMul)
+  %196(CNode_1969) = HyperMapPy_hyper_map[add_backward]{fn_leaf: MultitypeFuncGraph_add_backward{(Number, Number), (IOMonad, IOMonad), (EnvType, EnvType), (NoneType, NoneType), (Tensor, Tensor), (CSRTensor, CSRTensor), (UMonad, UMonad), (RowTensor, Tensor), (COOTensor, COOTensor), (CSRTensor, Tuple), (Tuple, CSRTensor), (COOTensor, Tuple), (Tuple, COOTensor), (MapTensor, MapTensor)}}(%194, %195)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Gradients/Default)
+  %197(CNode_1970) = %20(%196)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %198(CNode_1971) = TupleGetItem(%197, I64(1)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %199(CNode_1972) = TupleGetItem(%123, I64(2)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradMaxPool)
+  %200(CNode_1973) = HyperMapPy_hyper_map[add_backward]{fn_leaf: MultitypeFuncGraph_add_backward{(Number, Number), (IOMonad, IOMonad), (EnvType, EnvType), (NoneType, NoneType), (Tensor, Tensor), (CSRTensor, CSRTensor), (UMonad, UMonad), (RowTensor, Tensor), (COOTensor, COOTensor), (CSRTensor, Tuple), (Tuple, CSRTensor), (COOTensor, Tuple), (Tuple, COOTensor), (MapTensor, MapTensor)}}(%198, %199)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Gradients/Default)
+  %201(CNode_1974) = %17(%200)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %202(CNode_1975) = TupleGetItem(%201, I64(1)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %203(CNode_1976) = TupleGetItem(%123, I64(1)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradMaxPool)
+  %204(CNode_1977) = HyperMapPy_hyper_map[add_backward]{fn_leaf: MultitypeFuncGraph_add_backward{(Number, Number), (IOMonad, IOMonad), (EnvType, EnvType), (NoneType, NoneType), (Tensor, Tensor), (CSRTensor, CSRTensor), (UMonad, UMonad), (RowTensor, Tensor), (COOTensor, COOTensor), (CSRTensor, Tuple), (Tuple, CSRTensor), (COOTensor, Tuple), (Tuple, COOTensor), (MapTensor, MapTensor)}}(%202, %203)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Gradients/Default)
+  %205(CNode_1978) = TupleGetItem(%121, I64(2)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradReLU)
+  %206(CNode_1979) = HyperMapPy_hyper_map[add_backward]{fn_leaf: MultitypeFuncGraph_add_backward{(Number, Number), (IOMonad, IOMonad), (EnvType, EnvType), (NoneType, NoneType), (Tensor, Tensor), (CSRTensor, CSRTensor), (UMonad, UMonad), (RowTensor, Tensor), (COOTensor, COOTensor), (CSRTensor, Tuple), (Tuple, CSRTensor), (COOTensor, Tuple), (Tuple, COOTensor), (MapTensor, MapTensor)}}(%204, %205)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Gradients/Default)
+  %207(CNode_1980) = %14(%206)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %208(CNode_1981) = TupleGetItem(%207, I64(1)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %209(CNode_1982) = %11(%208)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %210(CNode_1983) = TupleGetItem(%209, I64(1)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %211(CNode_1984) = TupleGetItem(%112, I64(2)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradMaxPool)
+  %212(CNode_1985) = HyperMapPy_hyper_map[add_backward]{fn_leaf: MultitypeFuncGraph_add_backward{(Number, Number), (IOMonad, IOMonad), (EnvType, EnvType), (NoneType, NoneType), (Tensor, Tensor), (CSRTensor, CSRTensor), (UMonad, UMonad), (RowTensor, Tensor), (COOTensor, COOTensor), (CSRTensor, Tuple), (Tuple, CSRTensor), (COOTensor, Tuple), (Tuple, COOTensor), (MapTensor, MapTensor)}}(%210, %211)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Gradients/Default)
+  %213(CNode_1986) = TupleGetItem(%118, I64(2)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradConv2D)
+  %214(CNode_1987) = HyperMapPy_hyper_map[add_backward]{fn_leaf: MultitypeFuncGraph_add_backward{(Number, Number), (IOMonad, IOMonad), (EnvType, EnvType), (NoneType, NoneType), (Tensor, Tensor), (CSRTensor, CSRTensor), (UMonad, UMonad), (RowTensor, Tensor), (COOTensor, COOTensor), (CSRTensor, Tuple), (Tuple, CSRTensor), (COOTensor, Tuple), (Tuple, COOTensor), (MapTensor, MapTensor)}}(%212, %213)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Gradients/Default)
+  %215(CNode_1988) = %8(%214)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %216(CNode_1989) = TupleGetItem(%215, I64(1)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %217(CNode_1990) = TupleGetItem(%112, I64(1)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradMaxPool)
+  %218(CNode_1991) = HyperMapPy_hyper_map[add_backward]{fn_leaf: MultitypeFuncGraph_add_backward{(Number, Number), (IOMonad, IOMonad), (EnvType, EnvType), (NoneType, NoneType), (Tensor, Tensor), (CSRTensor, CSRTensor), (UMonad, UMonad), (RowTensor, Tensor), (COOTensor, COOTensor), (CSRTensor, Tuple), (Tuple, CSRTensor), (COOTensor, Tuple), (Tuple, COOTensor), (MapTensor, MapTensor)}}(%216, %217)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Gradients/Default)
+  %219(CNode_1992) = TupleGetItem(%110, I64(2)) cnode_attrs: {check_complex: Bool(1)}
+      : (<Tuple[Object:EnvType,Tensor[Float32]*2], TupleShape(NoShape, (32, 6, 24, 24), (32, 6, 24, 24))>, <null>) -> (<null>)
+      #scope: (Bprop/gradReLU)
+  %220(CNode_1993) = HyperMapPy_hyper_map[add_backward]{fn_leaf: MultitypeFuncGraph_add_backward{(Number, Number), (IOMonad, IOMonad), (EnvType, EnvType), (NoneType, NoneType), (Tensor, Tensor), (CSRTensor, CSRTensor), (UMonad, UMonad), (RowTensor, Tensor), (COOTensor, COOTensor), (CSRTensor, Tuple), (Tuple, CSRTensor), (COOTensor, Tuple), (Tuple, COOTensor), (MapTensor, MapTensor)}}(%218, %219)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Gradients/Default)
+  %221(CNode_1994) = %5(%220)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %222(CNode_1995) = TupleGetItem(%221, I64(1)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %223(CNode_1996) = %2(%222)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %224(CNode_1997) = TupleGetItem(%223, I64(1)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %225(CNode_1998) = TupleGetItem(%108, I64(2)) cnode_attrs: {check_complex: Bool(1)}
+      : (<Tuple[Object:EnvType,Tensor[Float32]*2,Tuple[Int64*4]], TupleShape(NoShape, (32, 6, 24, 24), (32, 1, 28, 28), TupleShape(NoShape, NoShape, NoShape, NoShape))>, <null>) -> (<null>)
+      #scope: (Bprop/gradConv2D)
+  %226(CNode_1999) = HyperMapPy_hyper_map[add_backward]{fn_leaf: MultitypeFuncGraph_add_backward{(Number, Number), (IOMonad, IOMonad), (EnvType, EnvType), (NoneType, NoneType), (Tensor, Tensor), (CSRTensor, CSRTensor), (UMonad, UMonad), (RowTensor, Tensor), (COOTensor, COOTensor), (CSRTensor, Tuple), (Tuple, CSRTensor), (COOTensor, Tuple), (Tuple, COOTensor), (MapTensor, MapTensor)}}(%224, %225)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Gradients/Default)
+  %227(CNode_2000) = TupleGetItem(%169, I64(2)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradSparseSoftmaxCrossEntropyWithLogits)
+  %228(CNode_2001) = TupleGetItem(%223, I64(2)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %229(CNode_2002) = TupleGetItem(%209, I64(2)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %230(CNode_2003) = TupleGetItem(%114, I64(2)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradConv2D)
+  %231(CNode_2004) = HyperMapPy_hyper_map[add_backward]{fn_leaf: MultitypeFuncGraph_add_backward{(Number, Number), (IOMonad, IOMonad), (EnvType, EnvType), (NoneType, NoneType), (Tensor, Tensor), (CSRTensor, CSRTensor), (UMonad, UMonad), (RowTensor, Tensor), (COOTensor, COOTensor), (CSRTensor, Tuple), (Tuple, CSRTensor), (COOTensor, Tuple), (Tuple, COOTensor), (MapTensor, MapTensor)}}(%229, %230)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Gradients/Default)
+  %232(CNode_2005) = TupleGetItem(%193, I64(2)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %233(CNode_2006) = TupleGetItem(%127, I64(2)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradMatMul)
+  %234(CNode_2007) = HyperMapPy_hyper_map[add_backward]{fn_leaf: MultitypeFuncGraph_add_backward{(Number, Number), (IOMonad, IOMonad), (EnvType, EnvType), (NoneType, NoneType), (Tensor, Tensor), (CSRTensor, CSRTensor), (UMonad, UMonad), (RowTensor, Tensor), (COOTensor, COOTensor), (CSRTensor, Tuple), (Tuple, CSRTensor), (COOTensor, Tuple), (Tuple, COOTensor), (MapTensor, MapTensor)}}(%232, %233)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Gradients/Default)
+  %235(CNode_2008) = TupleGetItem(%191, I64(2)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %236(CNode_2009) = TupleGetItem(%183, I64(2)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %237(CNode_2010) = TupleGetItem(%141, I64(2)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradMatMul)
+  %238(CNode_2011) = HyperMapPy_hyper_map[add_backward]{fn_leaf: MultitypeFuncGraph_add_backward{(Number, Number), (IOMonad, IOMonad), (EnvType, EnvType), (NoneType, NoneType), (Tensor, Tensor), (CSRTensor, CSRTensor), (UMonad, UMonad), (RowTensor, Tensor), (COOTensor, COOTensor), (CSRTensor, Tuple), (Tuple, CSRTensor), (COOTensor, Tuple), (Tuple, COOTensor), (MapTensor, MapTensor)}}(%236, %237)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Gradients/Default)
+  %239(CNode_2012) = TupleGetItem(%181, I64(2)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %240(CNode_2013) = TupleGetItem(%173, I64(2)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %241(CNode_2014) = TupleGetItem(%155, I64(2)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradMatMul)
+  %242(CNode_2015) = HyperMapPy_hyper_map[add_backward]{fn_leaf: MultitypeFuncGraph_add_backward{(Number, Number), (IOMonad, IOMonad), (EnvType, EnvType), (NoneType, NoneType), (Tensor, Tensor), (CSRTensor, CSRTensor), (UMonad, UMonad), (RowTensor, Tensor), (COOTensor, COOTensor), (CSRTensor, Tuple), (Tuple, CSRTensor), (COOTensor, Tuple), (Tuple, COOTensor), (MapTensor, MapTensor)}}(%240, %241)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Gradients/Default)
+  %243(CNode_2016) = TupleGetItem(%171, I64(2)) cnode_attrs: {check_complex: Bool(1)}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %244(CNode_2017) = MakeTuple(%0, %226, %227, %228, %231, %234, %235, %238, %239, %242, %243)
+      : (<Object:EnvType, NoShape>, <null>, <null>, <null>, <null>, <null>, <null>, <null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%244)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @?grad_top_2018:CNode_2019{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2020}
+#   2: @?grad_top_2018:CNode_2021{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2022}
+#   3: @?grad_top_2018:CNode_2023{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2024}
+#   4: @?grad_top_2018:CNode_2025{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2026}
+#   5: @?grad_top_2018:CNode_2027{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2028}
+#   6: @?grad_top_2018:CNode_2029{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2030}
+#   7: @?grad_top_2018:CNode_2031{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2032}
+#   8: @?grad_top_2018:CNode_2033{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2034}
+#   9: @?grad_top_2018:CNode_2035{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2036}
+#  10: @?grad_top_2018:CNode_2037{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2038}
+#  11: @?grad_top_2018:CNode_2039{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2040}
+#  12: @?grad_top_2018:CNode_2041{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2042}
+#  13: @?grad_top_2018:CNode_2043{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2044}
+#  14: @?grad_top_2018:CNode_2045{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2046}
+#  15: @?grad_top_2018:CNode_2047{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2048}
+#  16: @?grad_top_2018:CNode_2049{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2050}
+#  17: @?grad_top_2018:CNode_2051{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2052}
+#  18: @?grad_top_2018:CNode_2053{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2054}
+#  19: @?grad_top_2018:CNode_2055{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2056}
+#  20: @?grad_top_2018:CNode_2057{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2058}
+#  21: @?grad_top_2018:CNode_2059{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2060}
+#  22: @?grad_top_2018:CNode_2061{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2062}
+#  23: @?grad_top_2018:CNode_2063{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2064}
+#  24: @?grad_top_2018:CNode_2065{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2066}
+#  25: @?grad_top_2018:CNode_2067{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2068}
+#  26: @?grad_top_2018:CNode_2069{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2070}
+#  27: @?grad_top_2018:CNode_2071{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2072}
+#  28: @?grad_top_2018:CNode_2073{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2074}
+#  29: @?grad_top_2018:CNode_2075{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2076}
+#  30: @?grad_top_2018:CNode_2077{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2078}
+#  31: @?grad_top_2018:CNode_2079{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2080}
+#  32: @?grad_top_2018:CNode_2081{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2082}
+#  33: @?grad_top_2018:CNode_2083{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2084}
+#  34: @?grad_top_2018:CNode_2085{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2086}
+#  35: @?grad_top_2018:CNode_2087{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2088}
+#  36: @?grad_top_2018:CNode_2089{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2090}
+#  37: @?grad_top_2018:CNode_2091{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2092}
+#  38: @?grad_top_2018:CNode_2093{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: CNode_2094}
+#  39: @?grad_top_2018:CNode_2095{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: param_fc3.bias}
+#  40: @?grad_top_2018:CNode_2096{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: param_fc3.weight}
+#  41: @?grad_top_2018:CNode_2097{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: param_fc2.bias}
+#  42: @?grad_top_2018:CNode_2098{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: param_fc2.weight}
+#  43: @?grad_top_2018:CNode_2099{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: param_fc1.bias}
+#  44: @?grad_top_2018:CNode_2100{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: param_fc1.weight}
+#  45: @?grad_top_2018:CNode_2101{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: param_conv2.weight}
+#  46: @?grad_top_2018:CNode_2102{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: param_conv1.weight}
+#  47: @?grad_top_2018:CNode_2103{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: param_Parameter_2104}
+#  48: @?grad_top_2018:CNode_2105{[0]: ValueNode<ZerosLike> MetaFuncGraph-zeros_like.332, [1]: param_Parameter_2106}
+#  49: @?grad_top_1713:CNode_1996{[0]: CNode_1738, [1]: CNode_1995}
+#  50: @?grad_top_1713:CNode_1994{[0]: CNode_1742, [1]: CNode_1993}
+#  51: @?grad_top_1713:CNode_1988{[0]: CNode_1746, [1]: CNode_1987}
+#  52: @?grad_top_1713:CNode_1982{[0]: CNode_1750, [1]: CNode_1981}
+#  53: @?grad_top_1713:CNode_1980{[0]: CNode_1754, [1]: CNode_1979}
+#  54: @?grad_top_1713:CNode_1974{[0]: CNode_1758, [1]: CNode_1973}
+#  55: @?grad_top_1713:CNode_1970{[0]: CNode_1762, [1]: CNode_1969}
+#  56: @?grad_top_1713:CNode_1966{[0]: CNode_1766, [1]: CNode_1965}
+#  57: @?grad_top_1713:CNode_1964{[0]: CNode_1770, [1]: CNode_1963}
+#  58: @?grad_top_1713:CNode_1962{[0]: CNode_1774, [1]: CNode_1961}
+#  59: @?grad_top_1713:CNode_1956{[0]: CNode_1778, [1]: CNode_1955}
+#  60: @?grad_top_1713:CNode_1954{[0]: CNode_1782, [1]: CNode_1953}
+#  61: @?grad_top_1713:CNode_1952{[0]: CNode_1786, [1]: CNode_1951}
+#  62: @?grad_top_1713:CNode_1946{[0]: CNode_1790, [1]: CNode_1945}
+#  63: @?grad_top_1713:CNode_1944{[0]: CNode_1794, [1]: CNode_1943}
+#  64: @?grad_top_1713:CNode_1942{[0]: CNode_1799, [1]: CNode_1941}
+#  65: @?grad_top_2018:CNode_2107{[0]: CNode_2108, [1]: CNode_2109}
+#  66: @?grad_top_1713:CNode_1940{[0]: CNode_1806, [1]: CNode_1939}
+#  67: @?grad_top_1713:CNode_1928{[0]: CNode_1810, [1]: CNode_1927}
+#  68: @?grad_top_1713:CNode_2015{[0]: ValueNode<HyperMapPy> MetaFuncGraph-hyper_map[add_backward].423, [1]: CNode_2013, [2]: CNode_2014}
+#  69: @?grad_top_1713:CNode_1926{[0]: CNode_1814, [1]: CNode_1925}
+#  70: @?grad_top_1713:CNode_1949{[0]: ValueNode<HyperMapPy> MetaFuncGraph-hyper_map[add_backward].423, [1]: CNode_1947, [2]: CNode_1948}
+#  71: @?grad_top_1713:CNode_1914{[0]: CNode_1818, [1]: CNode_1913}
+#  72: @?grad_top_1713:CNode_2011{[0]: ValueNode<HyperMapPy> MetaFuncGraph-hyper_map[add_backward].423, [1]: CNode_2009, [2]: CNode_2010}
+#  73: @?grad_top_1713:CNode_1912{[0]: CNode_1822, [1]: CNode_1911}
+#  74: @?grad_top_1713:CNode_1959{[0]: ValueNode<HyperMapPy> MetaFuncGraph-hyper_map[add_backward].423, [1]: CNode_1957, [2]: CNode_1958}
+#  75: @?grad_top_1713:CNode_1900{[0]: CNode_1826, [1]: CNode_1899}
+#  76: @?grad_top_1713:CNode_2007{[0]: ValueNode<HyperMapPy> MetaFuncGraph-hyper_map[add_backward].423, [1]: CNode_2005, [2]: CNode_2006}
+#  77: @?grad_top_1713:CNode_1898{[0]: CNode_1830, [1]: CNode_1897}
+#  78: @?grad_top_1713:CNode_1896{[0]: CNode_1834, [1]: CNode_1895}
+#  79: @?grad_top_1713:CNode_1977{[0]: ValueNode<HyperMapPy> MetaFuncGraph-hyper_map[add_backward].423, [1]: CNode_1975, [2]: CNode_1976}
+#  80: @?grad_top_1713:CNode_1973{[0]: ValueNode<HyperMapPy> MetaFuncGraph-hyper_map[add_backward].423, [1]: CNode_1971, [2]: CNode_1972}
+#  81: @?grad_top_1713:CNode_1894{[0]: CNode_1838, [1]: CNode_1893}
+#  82: @?grad_top_1713:CNode_1979{[0]: ValueNode<HyperMapPy> MetaFuncGraph-hyper_map[add_backward].423, [1]: CNode_1977, [2]: CNode_1978}
+#  83: @?grad_top_1713:CNode_1887{[0]: CNode_1842, [1]: CNode_1886}
+#  84: @?grad_top_1713:CNode_2004{[0]: ValueNode<HyperMapPy> MetaFuncGraph-hyper_map[add_backward].423, [1]: CNode_2002, [2]: CNode_2003}
+#  85: @?grad_top_1713:CNode_1885{[0]: CNode_1846, [1]: CNode_1884}
+#  86: @?grad_top_1713:CNode_1991{[0]: ValueNode<HyperMapPy> MetaFuncGraph-hyper_map[add_backward].423, [1]: CNode_1989, [2]: CNode_1990}
+#  87: @?grad_top_1713:CNode_1985{[0]: ValueNode<HyperMapPy> MetaFuncGraph-hyper_map[add_backward].423, [1]: CNode_1983, [2]: CNode_1984}
+#  88: @?grad_top_1713:CNode_1883{[0]: CNode_1850, [1]: CNode_1882}
+#  89: @?grad_top_1713:CNode_1993{[0]: ValueNode<HyperMapPy> MetaFuncGraph-hyper_map[add_backward].423, [1]: CNode_1991, [2]: CNode_1992}
+#  90: @?grad_top_1713:CNode_1881{[0]: CNode_1854, [1]: CNode_1880}
+#  91: @?grad_top_1713:CNode_1999{[0]: ValueNode<HyperMapPy> MetaFuncGraph-hyper_map[add_backward].423, [1]: CNode_1997, [2]: CNode_1998}
+#  92: @?grad_top_1713:CNode_1891{[0]: CNode_1889, [1]: CNode_1890}
+#  93: @?grad_top_1713:CNode_1893{[0]: ValueNode<HyperMapPy> MetaFuncGraph-hyper_map[add_backward].423, [1]: CNode_1888, [2]: CNode_1892}
+#  94: @?grad_top_1713:CNode_1987{[0]: ValueNode<HyperMapPy> MetaFuncGraph-hyper_map[add_backward].423, [1]: CNode_1985, [2]: CNode_1986}
+#  95: @?grad_top_1713:CNode_1904{[0]: CNode_1902, [1]: CNode_1903}
+#  96: @?grad_top_1713:CNode_1906{[0]: ValueNode<HyperMapPy> MetaFuncGraph-hyper_map[add_backward].423, [1]: CNode_1901, [2]: CNode_1905}
+#  97: @?grad_top_1713:CNode_1969{[0]: ValueNode<HyperMapPy> MetaFuncGraph-hyper_map[add_backward].423, [1]: CNode_1967, [2]: CNode_1968}
+#  98: @?grad_top_1713:CNode_1909{[0]: CNode_1907, [1]: CNode_1908}
+#  99: @?grad_top_1713:CNode_1911{[0]: ValueNode<HyperMapPy> MetaFuncGraph-hyper_map[add_backward].423, [1]: CNode_1906, [2]: CNode_1910}
+# 100: @?grad_top_1713:CNode_1918{[0]: CNode_1916, [1]: CNode_1917}
+# 101: @?grad_top_1713:CNode_1920{[0]: ValueNode<HyperMapPy> MetaFuncGraph-hyper_map[add_backward].423, [1]: CNode_1915, [2]: CNode_1919}
+# 102: @?grad_top_1713:CNode_1961{[0]: ValueNode<HyperMapPy> MetaFuncGraph-hyper_map[add_backward].423, [1]: CNode_1959, [2]: CNode_1960}
+# 103: @?grad_top_1713:CNode_1923{[0]: CNode_1921, [1]: CNode_1922}
+# 104: @?grad_top_1713:CNode_1925{[0]: ValueNode<HyperMapPy> MetaFuncGraph-hyper_map[add_backward].423, [1]: CNode_1920, [2]: CNode_1924}
+# 105: @?grad_top_1713:CNode_1932{[0]: CNode_1930, [1]: CNode_1931}
+# 106: @?grad_top_1713:CNode_1934{[0]: ValueNode<HyperMapPy> MetaFuncGraph-hyper_map[add_backward].423, [1]: CNode_1929, [2]: CNode_1933}
+# 107: @?grad_top_1713:CNode_1951{[0]: ValueNode<HyperMapPy> MetaFuncGraph-hyper_map[add_backward].423, [1]: CNode_1949, [2]: CNode_1950}
+# 108: @?grad_top_1713:CNode_1937{[0]: CNode_1935, [1]: CNode_1936}
+# 109: @?grad_top_1713:CNode_1939{[0]: ValueNode<HyperMapPy> MetaFuncGraph-hyper_map[add_backward].423, [1]: CNode_1934, [2]: CNode_1938}
+# 110: @?grad_top_1713:CNode_1879{[0]: CNode_1878, [1]: param_Parameter_1714}
+# 111: @?grad_top_1713:CNode_2110{[0]: ValueNode<Primitive> Return, [1]: CNode_2017}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?MaxPoolGrad_1715 : 000001707B179660
+
+subgraph @?MaxPoolGrad_1715 parent: [subgraph @MaxPoolGrad_1845](%para0_Parameter_1716) {
+  %0(CNode_2111) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2112) = MakeTuple(%0)
+      : (<Object:EnvType, NoShape>) -> (<Tuple[Object:EnvType], TupleShape(NoShape)>)
+      #scope: (Default)
+  %2(equiv_106_CNode_2113) = MaxPoolGrad(%para_Parameter_2114, %para_Parameter_2115, %para_Parameter_2116) primitive_attrs: {input_names: (x_origin, out_origin, grad), kernel_size: (1, 1, 2, 2), output_names: (output), strides: (1, 1, 2, 2), pad_mode: I64(2), data_format: "NCHW", format: "NCHW"} cnode_primal_attrs: {unique_id: "19258"}
+      : (<Tensor[Float32], (32, 6, 24, 24)>, <Tensor[Float32], (32, 6, 12, 12)>, <Tensor[Float32], (32, 6, 12, 12)>) -> (<Tensor[Float32], (32, 6, 24, 24)>)
+      #scope: (Default)
+
+#------------------------> 2
+  %3(CNode_2117) = BpropMetaFuncGraph_BpropMetaFuncGraphMaxPoolGrad{BpropMetaFuncGraphMaxPoolGrad}($(@MaxPoolGrad_1845:para_Parameter_2114), $(@MaxPoolGrad_1845:para_Parameter_2115), $(@MaxPoolGrad_1845:para_Parameter_2116), %2, %para0_Parameter_1716) cnode_primal_attrs: {forward_node_name: "MaxPoolGrad_19258", forward_unique_id: "19258"}
+      : (<Tensor[Float32], (32, 6, 24, 24)>, <Tensor[Float32], (32, 6, 12, 12)>, <Tensor[Float32], (32, 6, 12, 12)>, <Tensor[Float32], (32, 6, 24, 24)>, <Tensor[Float32], (32, 6, 24, 24)>) -> (<null>)
+      #scope: (Gradients/Default/Grad_MaxPoolGrad)
+  %4(CNode_2118) = TupleAdd_tuple_add(%1, %3)
+      : (<Tuple[Object:EnvType], TupleShape(NoShape)>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "MaxPoolGrad_19258", forward_unique_id: "19258"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_MaxPoolGrad)
+}
+# Order:
+#   1: @?MaxPoolGrad_1715:CNode_2119{[0]: ValueNode<Primitive> Return, [1]: CNode_2118}
+
+
+# ===============================================================================================
+# The total of function graphs in evaluation stack: 3
+# ===============================================================================================
+
+
+# ===============================================================================================
+# The rest function graphs are the following:
+# ===============================================================================================
+subgraph attr:
+bprop_auto_monad_level: 
+subgraph instance: grad_top_1718 : 000001707B143830
+
+subgraph @grad_top_1718(%para0_Parameter_1737, %para0_Parameter_1798, %para0_conv1.weight, %para0_conv2.weight, %para0_fc1.weight, %para0_fc1.bias, %para0_fc2.weight, %para0_fc2.bias, %para0_fc3.weight, %para0_fc3.bias) {
+  %0(CNode_1735) = call @Conv2D_1736(%para0_Parameter_1737, %para0_conv1.weight)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_1739) = TupleGetItem(%0, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %2(CNode_1740) = call @PrimFunc_ReLU_1741(%1)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_1743) = TupleGetItem(%2, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %4(CNode_1744) = call @MaxPool_1745(%3)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %5(CNode_1747) = TupleGetItem(%4, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %6(CNode_1748) = call @Conv2D_1749(%5, %para0_conv2.weight)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %7(CNode_1751) = TupleGetItem(%6, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %8(CNode_1752) = call @PrimFunc_ReLU_1753(%7)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %9(CNode_1755) = TupleGetItem(%8, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %10(CNode_1756) = call @MaxPool_1757(%9)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %11(CNode_1759) = TupleGetItem(%10, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %12(CNode_1760) = call @PrimFunc_Flatten_1761(%11)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %13(CNode_1763) = TupleGetItem(%12, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %14(CNode_1764) = call @PrimFunc_MatMul_1765(%13, %para0_fc1.weight, Bool(0), Bool(1))
+      : (<null>, <null>, <Bool, NoShape>, <Bool, NoShape>) -> (<null>)
+      #scope: (Default)
+  %15(CNode_1767) = TupleGetItem(%14, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %16(CNode_1768) = call @PrimFunc_BiasAdd_1769(%15, %para0_fc1.bias, I64(0))
+      : (<null>, <null>, <Int64, NoShape>) -> (<null>)
+      #scope: (Default)
+  %17(CNode_1771) = TupleGetItem(%16, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %18(CNode_1772) = call @PrimFunc_ReLU_1773(%17)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %19(CNode_1775) = TupleGetItem(%18, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %20(CNode_1776) = call @PrimFunc_MatMul_1777(%19, %para0_fc2.weight, Bool(0), Bool(1))
+      : (<null>, <null>, <Bool, NoShape>, <Bool, NoShape>) -> (<null>)
+      #scope: (Default)
+  %21(CNode_1779) = TupleGetItem(%20, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %22(CNode_1780) = call @PrimFunc_BiasAdd_1781(%21, %para0_fc2.bias, I64(0))
+      : (<null>, <null>, <Int64, NoShape>) -> (<null>)
+      #scope: (Default)
+  %23(CNode_1783) = TupleGetItem(%22, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %24(CNode_1784) = call @PrimFunc_ReLU_1785(%23)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %25(CNode_1787) = TupleGetItem(%24, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %26(CNode_1788) = call @PrimFunc_MatMul_1789(%25, %para0_fc3.weight, Bool(0), Bool(1))
+      : (<null>, <null>, <Bool, NoShape>, <Bool, NoShape>) -> (<null>)
+      #scope: (Default)
+  %27(CNode_1791) = TupleGetItem(%26, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %28(CNode_1792) = call @PrimFunc_BiasAdd_1793(%27, %para0_fc3.bias, I64(0))
+      : (<null>, <null>, <Int64, NoShape>) -> (<null>)
+      #scope: (Default)
+  %29(CNode_1795) = TupleGetItem(%28, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %30(CNode_1796) = call @SparseSoftmaxCrossEntropyWithLogits_1797(%29, %para0_Parameter_1798)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradSparseSoftmaxCrossEntropyWithLogits)
+  %31(CNode_1800) = TupleGetItem(%30, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradSparseSoftmaxCrossEntropyWithLogits)
+  %32(CNode_1801) = call @PrimFunc_OnesLike_1802(Tensor(shape=[], dtype=Float32, value=<uninitialized>))
+      : (<Tensor[Float32], ()>) -> (<null>)
+      #scope: (Default)
+  %33(CNode_1803) = TupleGetItem(%32, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %34(CNode_1804) = call @PrimFunc_Mul_1805(%31, %33)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradSparseSoftmaxCrossEntropyWithLogits)
+  %35(CNode_1807) = TupleGetItem(%34, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradSparseSoftmaxCrossEntropyWithLogits)
+  %36(CNode_1808) = call @PrimFunc_MatMul_1809(%35, %para0_fc3.weight, Bool(0), Bool(0))
+      : (<null>, <null>, <Bool, NoShape>, <Bool, NoShape>) -> (<null>)
+      #scope: (Bprop/gradMatMul)
+  %37(CNode_1811) = TupleGetItem(%36, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradMatMul)
+  %38(CNode_1812) = call @PrimFunc_ReluGrad_1813(%37, %25)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradReLU)
+  %39(CNode_1815) = TupleGetItem(%38, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradReLU)
+  %40(CNode_1816) = call @PrimFunc_MatMul_1817(%39, %para0_fc2.weight, Bool(0), Bool(0))
+      : (<null>, <null>, <Bool, NoShape>, <Bool, NoShape>) -> (<null>)
+      #scope: (Bprop/gradMatMul)
+  %41(CNode_1819) = TupleGetItem(%40, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradMatMul)
+  %42(CNode_1820) = call @PrimFunc_ReluGrad_1821(%41, %19)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradReLU)
+  %43(CNode_1823) = TupleGetItem(%42, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradReLU)
+  %44(CNode_1824) = call @PrimFunc_MatMul_1825(%43, %para0_fc1.weight, Bool(0), Bool(0))
+      : (<null>, <null>, <Bool, NoShape>, <Bool, NoShape>) -> (<null>)
+      #scope: (Bprop/gradMatMul)
+  %45(CNode_1827) = TupleGetItem(%44, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradMatMul)
+  %46(CNode_1828) = call @PrimFunc_Reshape_1829(%45, (I64(32), I64(16), I64(4), I64(4)))
+      : (<null>, <Tuple[Int64*4], TupleShape(NoShape, NoShape, NoShape, NoShape)>) -> (<null>)
+      #scope: (Bprop/gradFlatten)
+  %47(CNode_1831) = TupleGetItem(%46, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradFlatten)
+  %48(CNode_1832) = call @MaxPoolGrad_1833(%9, %11, %47)
+      : (<null>, <null>, <null>) -> (<null>)
+      #scope: (Bprop/gradMaxPool)
+  %49(CNode_1835) = TupleGetItem(%48, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradMaxPool)
+  %50(CNode_1836) = call @PrimFunc_ReluGrad_1837(%49, %9)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradReLU)
+  %51(CNode_1839) = TupleGetItem(%50, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradReLU)
+  %52(CNode_1840) = call @Conv2DBackpropInput_1841(%51, %para0_conv2.weight, (I64(32), I64(6), I64(12), I64(12)))
+      : (<null>, <null>, <Tuple[Int64*4], TupleShape(NoShape, NoShape, NoShape, NoShape)>) -> (<null>)
+      #scope: (Bprop/gradConv2D)
+  %53(CNode_1843) = TupleGetItem(%52, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradConv2D)
+  %54(CNode_1844) = call @MaxPoolGrad_1845(%3, %5, %53)
+      : (<null>, <null>, <null>) -> (<null>)
+      #scope: (Bprop/gradMaxPool)
+  %55(CNode_1847) = TupleGetItem(%54, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradMaxPool)
+  %56(CNode_1848) = call @PrimFunc_ReluGrad_1849(%55, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradReLU)
+  %57(CNode_1851) = TupleGetItem(%56, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradReLU)
+  %58(CNode_1852) = call @Conv2DBackpropFilter_1853(%57, %para0_Parameter_1737, (I64(6), I64(1), I64(5), I64(5)))
+      : (<null>, <null>, <Tuple[Int64*4], TupleShape(NoShape, NoShape, NoShape, NoShape)>) -> (<null>)
+      #scope: (Bprop/gradConv2D)
+  %59(CNode_1855) = TupleGetItem(%58, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradConv2D)
+  %60(CNode_1856) = call @Conv2DBackpropFilter_1857(%51, %5, (I64(16), I64(6), I64(5), I64(5)))
+      : (<null>, <null>, <Tuple[Int64*4], TupleShape(NoShape, NoShape, NoShape, NoShape)>) -> (<null>)
+      #scope: (Bprop/gradConv2D)
+  %61(CNode_1858) = TupleGetItem(%60, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradConv2D)
+  %62(CNode_1859) = call @PrimFunc_MatMul_1860(%43, %13, Bool(1), Bool(0))
+      : (<null>, <null>, <Bool, NoShape>, <Bool, NoShape>) -> (<null>)
+      #scope: (Bprop/gradMatMul)
+  %63(CNode_1861) = TupleGetItem(%62, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradMatMul)
+  %64(CNode_1862) = call @PrimFunc_BiasAddGrad_1863(%43, I64(0))
+      : (<null>, <Int64, NoShape>) -> (<null>)
+      #scope: (Bprop/gradBiasAdd)
+  %65(CNode_1864) = TupleGetItem(%64, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradBiasAdd)
+  %66(CNode_1865) = call @PrimFunc_MatMul_1866(%39, %19, Bool(1), Bool(0))
+      : (<null>, <null>, <Bool, NoShape>, <Bool, NoShape>) -> (<null>)
+      #scope: (Bprop/gradMatMul)
+  %67(CNode_1867) = TupleGetItem(%66, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradMatMul)
+  %68(CNode_1868) = call @PrimFunc_BiasAddGrad_1869(%39, I64(0))
+      : (<null>, <Int64, NoShape>) -> (<null>)
+      #scope: (Bprop/gradBiasAdd)
+  %69(CNode_1870) = TupleGetItem(%68, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradBiasAdd)
+  %70(CNode_1871) = call @PrimFunc_MatMul_1872(%35, %25, Bool(1), Bool(0))
+      : (<null>, <null>, <Bool, NoShape>, <Bool, NoShape>) -> (<null>)
+      #scope: (Bprop/gradMatMul)
+  %71(CNode_1873) = TupleGetItem(%70, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradMatMul)
+  %72(CNode_1874) = call @PrimFunc_BiasAddGrad_1875(%35, I64(0))
+      : (<null>, <Int64, NoShape>) -> (<null>)
+      #scope: (Bprop/gradBiasAdd)
+  %73(CNode_1876) = TupleGetItem(%72, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Bprop/gradBiasAdd)
+  %74(CNode_1877) = MakeTupleGradient_make_tuple_gradient(%59, %61, %63, %65, %67, %69, %71, %73)
+      : (<null>, <null>, <null>, <null>, <null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  %75(CNode_2120) = TupleGetItem(%74, I64(0))
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %76(CNode_2121) = MakeTuple(%75, @?grad_top_1713)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%76)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @grad_top_1718:CNode_2122{[0]: ValueNode<Primitive> Return, [1]: CNode_2121}
+
+
+subgraph attr:
+subgraph instance: PrimFunc_BiasAddGrad_1875 : 0000017084879960
+
+subgraph @PrimFunc_BiasAddGrad_1875(%para0_Parameter_2123, %para0_Parameter_2124) {
+  %0(equiv_75_CNode_2125) = PrimFunc_BiasAddGrad(%para0_Parameter_2123, %para0_Parameter_2124) cnode_primal_attrs: {unique_id: "19463"}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2126) = MakeTuple(%0, @?PrimFunc_BiasAddGrad_2127)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @PrimFunc_BiasAddGrad_1875:PrimFunc_BiasAddGrad{[0]: ValueNode<Primitive> Return, [1]: CNode_2126}
+
+
+subgraph attr:
+subgraph instance: PrimFunc_Mul_1805 : 00000170848708C0
+
+subgraph @PrimFunc_Mul_1805(%para0_Parameter_2128, %para0_Parameter_2129) {
+  %0(equiv_76_CNode_2130) = PrimFunc_Mul(%para0_Parameter_2128, %para0_Parameter_2129) cnode_attrs: {convert_attr_node: Bool(1)} cnode_primal_attrs: {unique_id: "19477"}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2131) = MakeTuple(%0, @?PrimFunc_Mul_2132)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @PrimFunc_Mul_1805:PrimFunc_Mul{[0]: ValueNode<Primitive> Return, [1]: CNode_2131}
+
+
+subgraph attr:
+subgraph instance: PrimFunc_OnesLike_1802 : 000001708486F810
+
+subgraph @PrimFunc_OnesLike_1802(%para0_Parameter_2133) {
+  %0(equiv_77_CNode_2134) = PrimFunc_OnesLike(%para0_Parameter_2133) cnode_primal_attrs: {unique_id: "19485"}
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2135) = MakeTuple(%0, @?PrimFunc_OnesLike_2136)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @PrimFunc_OnesLike_1802:PrimFunc_OnesLike{[0]: ValueNode<Primitive> Return, [1]: CNode_2135}
+
+
+subgraph attr:
+subgraph instance: SparseSoftmaxCrossEntropyWithLogits_1797 : 0000017084876CE0
+
+subgraph @SparseSoftmaxCrossEntropyWithLogits_1797(%para0_Parameter_2137, %para0_Parameter_2138) {
+  %0(equiv_78_CNode_2139) = SparseSoftmaxCrossEntropyWithLogits(%para0_Parameter_2137, %para0_Parameter_2138) primitive_attrs: {is_grad: Bool(1)} cnode_primal_attrs: {unique_id: "19475"}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2140) = MakeTuple(%0, @?SparseSoftmaxCrossEntropyWithLogits_2141)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @SparseSoftmaxCrossEntropyWithLogits_1797:SparseSoftmaxCrossEntropyWithLogits{[0]: ValueNode<Primitive> Return, [1]: CNode_2140}
+
+
+subgraph attr:
+subgraph instance: PrimFunc_BiasAdd_1793 : 000001708486E760
+
+subgraph @PrimFunc_BiasAdd_1793(%para0_Parameter_2142, %para0_Parameter_2143, %para0_Parameter_2144) {
+  %0(equiv_111_CNode_2145) = PrimFunc_BiasAdd(%para0_Parameter_2142, %para0_Parameter_2143, %para0_Parameter_2144) {instance name: bias_add} primitive_attrs: {IsFeatureMapOutput: Bool(0), IsFeatureMapInputList: ()} cnode_primal_attrs: {unique_id: "19741"}
+      : (<null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2146) = MakeTuple(%0, @?PrimFunc_BiasAdd_2147)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @PrimFunc_BiasAdd_1793:PrimFunc_BiasAdd{[0]: ValueNode<Primitive> Return, [1]: CNode_2146}
+
+
+subgraph attr:
+subgraph instance: PrimFunc_MatMul_1789 : 000001708486E1D0
+
+subgraph @PrimFunc_MatMul_1789(%para0_Parameter_2148, %para0_Parameter_2149, %para0_Parameter_2150, %para0_Parameter_2151) {
+  %0(equiv_79_CNode_2152) = PrimFunc_MatMul(%para0_Parameter_2148, %para0_Parameter_2149, %para0_Parameter_2150, %para0_Parameter_2151) cnode_attrs: {is_knode: Bool(1)} cnode_primal_attrs: {unique_id: "19430"}
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2153) = MakeTuple(%0, @?PrimFunc_MatMul_2154)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @PrimFunc_MatMul_1789:PrimFunc_MatMul{[0]: ValueNode<Primitive> Return, [1]: CNode_2153}
+
+
+subgraph attr:
+subgraph instance: PrimFunc_ReLU_1785 : 000001708486DC40
+
+subgraph @PrimFunc_ReLU_1785(%para0_Parameter_2155) {
+  %0(equiv_80_CNode_2156) = PrimFunc_ReLU(%para0_Parameter_2155) cnode_attrs: {is_knode: Bool(1)} cnode_primal_attrs: {unique_id: "19414"}
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2157) = MakeTuple(%0, @?PrimFunc_ReLU_2158)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @PrimFunc_ReLU_1785:PrimFunc_ReLU{[0]: ValueNode<Primitive> Return, [1]: CNode_2157}
+
+
+subgraph attr:
+subgraph instance: PrimFunc_BiasAdd_1781 : 000001708486F280
+
+subgraph @PrimFunc_BiasAdd_1781(%para0_Parameter_2159, %para0_Parameter_2160, %para0_Parameter_2161) {
+  %0(equiv_110_CNode_2162) = PrimFunc_BiasAdd(%para0_Parameter_2159, %para0_Parameter_2160, %para0_Parameter_2161) {instance name: bias_add} primitive_attrs: {IsFeatureMapOutput: Bool(0), IsFeatureMapInputList: ()} cnode_primal_attrs: {unique_id: "19739"}
+      : (<null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2163) = MakeTuple(%0, @?PrimFunc_BiasAdd_2164)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @PrimFunc_BiasAdd_1781:PrimFunc_BiasAdd{[0]: ValueNode<Primitive> Return, [1]: CNode_2163}
+
+
+subgraph attr:
+subgraph instance: PrimFunc_MatMul_1777 : 000001708486ECF0
+
+subgraph @PrimFunc_MatMul_1777(%para0_Parameter_2165, %para0_Parameter_2166, %para0_Parameter_2167, %para0_Parameter_2168) {
+  %0(equiv_81_CNode_2169) = PrimFunc_MatMul(%para0_Parameter_2165, %para0_Parameter_2166, %para0_Parameter_2167, %para0_Parameter_2168) cnode_attrs: {is_knode: Bool(1)} cnode_primal_attrs: {unique_id: "19374"}
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2170) = MakeTuple(%0, @?PrimFunc_MatMul_2171)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @PrimFunc_MatMul_1777:PrimFunc_MatMul{[0]: ValueNode<Primitive> Return, [1]: CNode_2170}
+
+
+subgraph attr:
+subgraph instance: PrimFunc_ReLU_1773 : 00000170848745F0
+
+subgraph @PrimFunc_ReLU_1773(%para0_Parameter_2172) {
+  %0(equiv_82_CNode_2173) = PrimFunc_ReLU(%para0_Parameter_2172) cnode_attrs: {is_knode: Bool(1)} cnode_primal_attrs: {unique_id: "19358"}
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2174) = MakeTuple(%0, @?PrimFunc_ReLU_2175)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @PrimFunc_ReLU_1773:PrimFunc_ReLU{[0]: ValueNode<Primitive> Return, [1]: CNode_2174}
+
+
+subgraph attr:
+subgraph instance: PrimFunc_BiasAdd_1769 : 0000017084873540
+
+subgraph @PrimFunc_BiasAdd_1769(%para0_Parameter_2176, %para0_Parameter_2177, %para0_Parameter_2178) {
+  %0(equiv_109_CNode_2179) = PrimFunc_BiasAdd(%para0_Parameter_2176, %para0_Parameter_2177, %para0_Parameter_2178) {instance name: bias_add} primitive_attrs: {IsFeatureMapOutput: Bool(0), IsFeatureMapInputList: ()} cnode_primal_attrs: {unique_id: "19737"}
+      : (<null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2180) = MakeTuple(%0, @?PrimFunc_BiasAdd_2181)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @PrimFunc_BiasAdd_1769:PrimFunc_BiasAdd{[0]: ValueNode<Primitive> Return, [1]: CNode_2180}
+
+
+subgraph attr:
+subgraph instance: PrimFunc_MatMul_1765 : 0000017084871F00
+
+subgraph @PrimFunc_MatMul_1765(%para0_Parameter_2182, %para0_Parameter_2183, %para0_Parameter_2184, %para0_Parameter_2185) {
+  %0(equiv_83_CNode_2186) = PrimFunc_MatMul(%para0_Parameter_2182, %para0_Parameter_2183, %para0_Parameter_2184, %para0_Parameter_2185) cnode_attrs: {is_knode: Bool(1)} cnode_primal_attrs: {unique_id: "19318"}
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2187) = MakeTuple(%0, @?PrimFunc_MatMul_2188)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @PrimFunc_MatMul_1765:PrimFunc_MatMul{[0]: ValueNode<Primitive> Return, [1]: CNode_2187}
+
+
+subgraph attr:
+subgraph instance: PrimFunc_Flatten_1761 : 0000017084870E50
+
+subgraph @PrimFunc_Flatten_1761(%para0_Parameter_2189) {
+  %0(equiv_108_CNode_2190) = PrimFunc_Flatten(%para0_Parameter_2189) primitive_attrs: {IsFeatureMapOutput: Bool(0), IsFeatureMapInputList: ()} cnode_primal_attrs: {unique_id: "19735"}
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2191) = MakeTuple(%0, @?PrimFunc_Flatten_2192)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @PrimFunc_Flatten_1761:PrimFunc_Flatten{[0]: ValueNode<Primitive> Return, [1]: CNode_2191}
+
+
+subgraph attr:
+subgraph instance: MaxPool_1757 : 0000017084871970
+
+subgraph @MaxPool_1757(%para0_Parameter_2193) {
+  %0(equiv_84_CNode_2194) = MaxPool(%para0_Parameter_2193) {instance name: max_pool} primitive_attrs: {kernel_size: (1, 1, 2, 2), input_names: [x], strides: (1, 1, 2, 2), pad_mode: I64(2), format: "NCHW", output_names: [output]} cnode_attrs: {is_knode: Bool(1)} cnode_primal_attrs: {unique_id: "19291"}
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2195) = MakeTuple(%0, @?MaxPool_2196)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @MaxPool_1757:MaxPool{[0]: ValueNode<Primitive> Return, [1]: CNode_2195}
+
+
+subgraph attr:
+subgraph instance: PrimFunc_ReLU_1753 : 0000017084872490
+
+subgraph @PrimFunc_ReLU_1753(%para0_Parameter_2197) {
+  %0(equiv_85_CNode_2198) = PrimFunc_ReLU(%para0_Parameter_2197) cnode_attrs: {convert_attr_node: Bool(1), is_knode: Bool(1)} cnode_primal_attrs: {unique_id: "19281"}
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2199) = MakeTuple(%0, @?PrimFunc_ReLU_2200)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @PrimFunc_ReLU_1753:PrimFunc_ReLU{[0]: ValueNode<Primitive> Return, [1]: CNode_2199}
+
+
+subgraph attr:
+subgraph instance: Conv2D_1749 : 00000170848661E0
+
+subgraph @Conv2D_1749(%para0_Parameter_2201, %para0_Parameter_2202) {
+  %0(equiv_86_CNode_2203) = Conv2D(%para0_Parameter_2201, %para0_Parameter_2202) {instance name: conv2d} primitive_attrs: {out_channel: I64(16), kernel_size: (5, 5), group: I64(1), format: "NCHW", mode: I64(1), pad: (0, 0, 0, 0), pad_mode: I64(2), stride: (1, 1, 1, 1), dilation: (1, 1, 1, 1), input_names: [x, w], output_names: [output], groups: I64(1), pad_list: (0, 0, 0, 0)} cnode_attrs: {is_knode: Bool(1)} cnode_primal_attrs: {unique_id: "19267"}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2204) = MakeTuple(%0, @?Conv2D_2205)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @Conv2D_1749:Conv2D{[0]: ValueNode<Primitive> Return, [1]: CNode_2204}
+
+
+subgraph attr:
+subgraph instance: MaxPool_1745 : 0000017084865C50
+
+subgraph @MaxPool_1745(%para0_Parameter_2206) {
+  %0(equiv_87_CNode_2207) = MaxPool(%para0_Parameter_2206) {instance name: max_pool} primitive_attrs: {kernel_size: (1, 1, 2, 2), input_names: [x], strides: (1, 1, 2, 2), pad_mode: I64(2), format: "NCHW", output_names: [output]} cnode_attrs: {is_knode: Bool(1)} cnode_primal_attrs: {unique_id: "19253"}
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2208) = MakeTuple(%0, @?MaxPool_2209)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @MaxPool_1745:MaxPool{[0]: ValueNode<Primitive> Return, [1]: CNode_2208}
+
+
+subgraph attr:
+subgraph instance: PrimFunc_ReLU_1741 : 00000170848656C0
+
+subgraph @PrimFunc_ReLU_1741(%para0_Parameter_2210) {
+  %0(equiv_88_CNode_2211) = PrimFunc_ReLU(%para0_Parameter_2210) cnode_attrs: {convert_attr_node: Bool(1), is_knode: Bool(1)} cnode_primal_attrs: {unique_id: "19243"}
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2212) = MakeTuple(%0, @?PrimFunc_ReLU_2213)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @PrimFunc_ReLU_1741:PrimFunc_ReLU{[0]: ValueNode<Primitive> Return, [1]: CNode_2212}
+
+
+subgraph attr:
+subgraph instance: Conv2D_1736 : 000001708486C600
+
+subgraph @Conv2D_1736(%para0_Parameter_2214, %para0_Parameter_2215) {
+  %0(equiv_89_CNode_2216) = Conv2D(%para0_Parameter_2214, %para0_Parameter_2215) {instance name: conv2d} primitive_attrs: {out_channel: I64(6), kernel_size: (5, 5), group: I64(1), format: "NCHW", mode: I64(1), pad: (0, 0, 0, 0), pad_mode: I64(2), stride: (1, 1, 1, 1), dilation: (1, 1, 1, 1), input_names: [x, w], output_names: [output], groups: I64(1), pad_list: (0, 0, 0, 0)} cnode_attrs: {is_knode: Bool(1)} cnode_primal_attrs: {unique_id: "19229"}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2217) = MakeTuple(%0, @?Conv2D_2218)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @Conv2D_1736:Conv2D{[0]: ValueNode<Primitive> Return, [1]: CNode_2217}
+
+
+subgraph attr:
+subgraph instance: PrimFunc_MatMul_1872 : 0000017084869980
+
+subgraph @PrimFunc_MatMul_1872(%para0_Parameter_2219, %para0_Parameter_2220, %para0_Parameter_2221, %para0_Parameter_2222) {
+  %0(equiv_90_CNode_2223) = PrimFunc_MatMul(%para0_Parameter_2219, %para0_Parameter_2220, %para0_Parameter_2221, %para0_Parameter_2222) cnode_attrs: {convert_attr_node: Bool(1)} cnode_primal_attrs: {unique_id: "19443"}
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2224) = MakeTuple(%0, @?PrimFunc_MatMul_2225)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @PrimFunc_MatMul_1872:PrimFunc_MatMul{[0]: ValueNode<Primitive> Return, [1]: CNode_2224}
+
+
+subgraph attr:
+subgraph instance: PrimFunc_BiasAddGrad_1869 : 0000017084867290
+
+subgraph @PrimFunc_BiasAddGrad_1869(%para0_Parameter_2226, %para0_Parameter_2227) {
+  %0(equiv_91_CNode_2228) = PrimFunc_BiasAddGrad(%para0_Parameter_2226, %para0_Parameter_2227) cnode_primal_attrs: {unique_id: "19407"}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2229) = MakeTuple(%0, @?PrimFunc_BiasAddGrad_2230)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @PrimFunc_BiasAddGrad_1869:PrimFunc_BiasAddGrad{[0]: ValueNode<Primitive> Return, [1]: CNode_2229}
+
+
+subgraph attr:
+subgraph instance: PrimFunc_ReluGrad_1813 : 0000017084864610
+
+subgraph @PrimFunc_ReluGrad_1813(%para0_Parameter_2231, %para0_Parameter_2232) {
+  %0(equiv_92_CNode_2233) = PrimFunc_ReluGrad(%para0_Parameter_2231, %para0_Parameter_2232) cnode_attrs: {convert_attr_node: Bool(1)} cnode_primal_attrs: {unique_id: "19419"}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2234) = MakeTuple(%0, @?PrimFunc_ReluGrad_2235)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @PrimFunc_ReluGrad_1813:PrimFunc_ReluGrad{[0]: ValueNode<Primitive> Return, [1]: CNode_2234}
+
+
+subgraph attr:
+subgraph instance: PrimFunc_MatMul_1809 : 000001708486B550
+
+subgraph @PrimFunc_MatMul_1809(%para0_Parameter_2236, %para0_Parameter_2237, %para0_Parameter_2238, %para0_Parameter_2239) {
+  %0(equiv_93_CNode_2240) = PrimFunc_MatMul(%para0_Parameter_2236, %para0_Parameter_2237, %para0_Parameter_2238, %para0_Parameter_2239) cnode_attrs: {convert_attr_node: Bool(1)} cnode_primal_attrs: {unique_id: "19439"}
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2241) = MakeTuple(%0, @?PrimFunc_MatMul_2242)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @PrimFunc_MatMul_1809:PrimFunc_MatMul{[0]: ValueNode<Primitive> Return, [1]: CNode_2241}
+
+
+subgraph attr:
+subgraph instance: PrimFunc_MatMul_1866 : 000001708486AFC0
+
+subgraph @PrimFunc_MatMul_1866(%para0_Parameter_2243, %para0_Parameter_2244, %para0_Parameter_2245, %para0_Parameter_2246) {
+  %0(equiv_94_CNode_2247) = PrimFunc_MatMul(%para0_Parameter_2243, %para0_Parameter_2244, %para0_Parameter_2245, %para0_Parameter_2246) cnode_attrs: {convert_attr_node: Bool(1)} cnode_primal_attrs: {unique_id: "19387"}
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2248) = MakeTuple(%0, @?PrimFunc_MatMul_2249)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @PrimFunc_MatMul_1866:PrimFunc_MatMul{[0]: ValueNode<Primitive> Return, [1]: CNode_2248}
+
+
+subgraph attr:
+subgraph instance: PrimFunc_BiasAddGrad_1863 : 000001708486AA30
+
+subgraph @PrimFunc_BiasAddGrad_1863(%para0_Parameter_2250, %para0_Parameter_2251) {
+  %0(equiv_95_CNode_2252) = PrimFunc_BiasAddGrad(%para0_Parameter_2250, %para0_Parameter_2251) cnode_primal_attrs: {unique_id: "19351"}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2253) = MakeTuple(%0, @?PrimFunc_BiasAddGrad_2254)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @PrimFunc_BiasAddGrad_1863:PrimFunc_BiasAddGrad{[0]: ValueNode<Primitive> Return, [1]: CNode_2253}
+
+
+subgraph attr:
+subgraph instance: PrimFunc_ReluGrad_1821 : 000001708486BAE0
+
+subgraph @PrimFunc_ReluGrad_1821(%para0_Parameter_2255, %para0_Parameter_2256) {
+  %0(equiv_96_CNode_2257) = PrimFunc_ReluGrad(%para0_Parameter_2255, %para0_Parameter_2256) cnode_attrs: {convert_attr_node: Bool(1)} cnode_primal_attrs: {unique_id: "19363"}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2258) = MakeTuple(%0, @?PrimFunc_ReluGrad_2259)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @PrimFunc_ReluGrad_1821:PrimFunc_ReluGrad{[0]: ValueNode<Primitive> Return, [1]: CNode_2258}
+
+
+subgraph attr:
+subgraph instance: PrimFunc_MatMul_1817 : 0000017084869F10
+
+subgraph @PrimFunc_MatMul_1817(%para0_Parameter_2260, %para0_Parameter_2261, %para0_Parameter_2262, %para0_Parameter_2263) {
+  %0(equiv_97_CNode_2264) = PrimFunc_MatMul(%para0_Parameter_2260, %para0_Parameter_2261, %para0_Parameter_2262, %para0_Parameter_2263) cnode_attrs: {convert_attr_node: Bool(1)} cnode_primal_attrs: {unique_id: "19383"}
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2265) = MakeTuple(%0, @?PrimFunc_MatMul_2266)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @PrimFunc_MatMul_1817:PrimFunc_MatMul{[0]: ValueNode<Primitive> Return, [1]: CNode_2265}
+
+
+subgraph attr:
+subgraph instance: PrimFunc_MatMul_1860 : 0000017084865130
+
+subgraph @PrimFunc_MatMul_1860(%para0_Parameter_2267, %para0_Parameter_2268, %para0_Parameter_2269, %para0_Parameter_2270) {
+  %0(equiv_98_CNode_2271) = PrimFunc_MatMul(%para0_Parameter_2267, %para0_Parameter_2268, %para0_Parameter_2269, %para0_Parameter_2270) cnode_attrs: {convert_attr_node: Bool(1)} cnode_primal_attrs: {unique_id: "19331"}
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2272) = MakeTuple(%0, @?PrimFunc_MatMul_2273)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @PrimFunc_MatMul_1860:PrimFunc_MatMul{[0]: ValueNode<Primitive> Return, [1]: CNode_2272}
+
+
+subgraph attr:
+subgraph instance: Conv2DBackpropFilter_1857 : 00000170848688D0
+
+subgraph @Conv2DBackpropFilter_1857(%para0_Parameter_2274, %para0_Parameter_2275, %para0_Parameter_2276) {
+  %0(equiv_99_CNode_2277) = Conv2DBackpropFilter(%para0_Parameter_2274, %para0_Parameter_2275, %para0_Parameter_2276) primitive_attrs: {group: I64(1), input_names: (out_backprop, input, filter_sizes), output_names: (output), format: "NCHW", mode: I64(1), dilation: (1, 1, 1, 1), stride: (1, 1, 1, 1), groups: I64(1), data_format: "NCHW", out_channel: I64(16), kernel_size: (5, 5), pad_mode: I64(2), pad: (0, 0, 0, 0), pad_list: (0, 0, 0, 0)} cnode_primal_attrs: {unique_id: "19276"}
+      : (<null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2278) = MakeTuple(%0, @?Conv2DBackpropFilter_2279)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @Conv2DBackpropFilter_1857:Conv2DBackpropFilter{[0]: ValueNode<Primitive> Return, [1]: CNode_2278}
+
+
+subgraph attr:
+subgraph instance: PrimFunc_ReluGrad_1837 : 0000017078940B90
+
+subgraph @PrimFunc_ReluGrad_1837(%para0_Parameter_2280, %para0_Parameter_2281) {
+  %0(equiv_100_CNode_2282) = PrimFunc_ReluGrad(%para0_Parameter_2280, %para0_Parameter_2281) cnode_attrs: {convert_attr_node: Bool(1)} cnode_primal_attrs: {unique_id: "19286"}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2283) = MakeTuple(%0, @?PrimFunc_ReluGrad_2284)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @PrimFunc_ReluGrad_1837:PrimFunc_ReluGrad{[0]: ValueNode<Primitive> Return, [1]: CNode_2283}
+
+
+subgraph attr:
+subgraph instance: MaxPoolGrad_1833 : 000001707B17FA80
+
+subgraph @MaxPoolGrad_1833(%para0_Parameter_2285, %para0_Parameter_2286, %para0_Parameter_2287) {
+  %0(equiv_101_CNode_2288) = MaxPoolGrad(%para0_Parameter_2285, %para0_Parameter_2286, %para0_Parameter_2287) primitive_attrs: {input_names: (x_origin, out_origin, grad), kernel_size: (1, 1, 2, 2), output_names: (output), strides: (1, 1, 2, 2), pad_mode: I64(2), data_format: "NCHW", format: "NCHW"} cnode_primal_attrs: {unique_id: "19296"}
+      : (<null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2289) = MakeTuple(%0, @?MaxPoolGrad_2290)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @MaxPoolGrad_1833:MaxPoolGrad{[0]: ValueNode<Primitive> Return, [1]: CNode_2289}
+
+
+subgraph attr:
+subgraph instance: PrimFunc_Reshape_1829 : 000001707B17EF60
+
+subgraph @PrimFunc_Reshape_1829(%para0_Parameter_2291, %para0_Parameter_2292) {
+  %0(equiv_102_CNode_2293) = PrimFunc_Reshape(%para0_Parameter_2291, %para0_Parameter_2292) cnode_attrs: {convert_attr_node: Bool(1)} cnode_primal_attrs: {unique_id: "19307"}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2294) = MakeTuple(%0, @?PrimFunc_Reshape_2295)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @PrimFunc_Reshape_1829:PrimFunc_Reshape{[0]: ValueNode<Primitive> Return, [1]: CNode_2294}
+
+
+subgraph attr:
+subgraph instance: PrimFunc_MatMul_1825 : 000001707B17E440
+
+subgraph @PrimFunc_MatMul_1825(%para0_Parameter_2296, %para0_Parameter_2297, %para0_Parameter_2298, %para0_Parameter_2299) {
+  %0(equiv_103_CNode_2300) = PrimFunc_MatMul(%para0_Parameter_2296, %para0_Parameter_2297, %para0_Parameter_2298, %para0_Parameter_2299) cnode_attrs: {convert_attr_node: Bool(1)} cnode_primal_attrs: {unique_id: "19327"}
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2301) = MakeTuple(%0, @?PrimFunc_MatMul_2302)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @PrimFunc_MatMul_1825:PrimFunc_MatMul{[0]: ValueNode<Primitive> Return, [1]: CNode_2301}
+
+
+subgraph attr:
+subgraph instance: Conv2DBackpropFilter_1853 : 000001707B17DEB0
+
+subgraph @Conv2DBackpropFilter_1853(%para0_Parameter_2303, %para0_Parameter_2304, %para0_Parameter_2305) {
+  %0(equiv_104_CNode_2306) = Conv2DBackpropFilter(%para0_Parameter_2303, %para0_Parameter_2304, %para0_Parameter_2305) primitive_attrs: {group: I64(1), input_names: (out_backprop, input, filter_sizes), output_names: (output), format: "NCHW", mode: I64(1), dilation: (1, 1, 1, 1), stride: (1, 1, 1, 1), groups: I64(1), data_format: "NCHW", out_channel: I64(6), kernel_size: (5, 5), pad_mode: I64(2), pad: (0, 0, 0, 0), pad_list: (0, 0, 0, 0)} cnode_primal_attrs: {unique_id: "19238"}
+      : (<null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2307) = MakeTuple(%0, @?Conv2DBackpropFilter_2308)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @Conv2DBackpropFilter_1853:Conv2DBackpropFilter{[0]: ValueNode<Primitive> Return, [1]: CNode_2307}
+
+
+subgraph attr:
+subgraph instance: PrimFunc_ReluGrad_1849 : 000001707B175EC0
+
+subgraph @PrimFunc_ReluGrad_1849(%para0_Parameter_2309, %para0_Parameter_2310) {
+  %0(equiv_105_CNode_2311) = PrimFunc_ReluGrad(%para0_Parameter_2309, %para0_Parameter_2310) cnode_attrs: {convert_attr_node: Bool(1)} cnode_primal_attrs: {unique_id: "19248"}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2312) = MakeTuple(%0, @?PrimFunc_ReluGrad_2313)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @PrimFunc_ReluGrad_1849:PrimFunc_ReluGrad{[0]: ValueNode<Primitive> Return, [1]: CNode_2312}
+
+
+subgraph attr:
+subgraph instance: MaxPoolGrad_1845 : 000001707B17D390
+
+subgraph @MaxPoolGrad_1845(%para0_Parameter_2114, %para0_Parameter_2115, %para0_Parameter_2116) {
+  %0(equiv_106_CNode_2113) = MaxPoolGrad(%para0_Parameter_2114, %para0_Parameter_2115, %para0_Parameter_2116) primitive_attrs: {input_names: (x_origin, out_origin, grad), kernel_size: (1, 1, 2, 2), output_names: (output), strides: (1, 1, 2, 2), pad_mode: I64(2), data_format: "NCHW", format: "NCHW"} cnode_primal_attrs: {unique_id: "19258"}
+      : (<null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2314) = MakeTuple(%0, @?MaxPoolGrad_1715)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @MaxPoolGrad_1845:MaxPoolGrad{[0]: ValueNode<Primitive> Return, [1]: CNode_2314}
+
+
+subgraph attr:
+subgraph instance: Conv2DBackpropInput_1841 : 000001707B17CE00
+
+subgraph @Conv2DBackpropInput_1841(%para0_Parameter_2315, %para0_Parameter_2316, %para0_Parameter_2317) {
+  %0(equiv_107_CNode_2318) = Conv2DBackpropInput(%para0_Parameter_2315, %para0_Parameter_2316, %para0_Parameter_2317) primitive_attrs: {group: I64(1), input_names: (out_backprop, filter, input_sizes), output_names: (output), format: "NCHW", mode: I64(1), dilation: (1, 1, 1, 1), stride: (1, 1, 1, 1), groups: I64(1), data_format: "NCHW", out_channel: I64(16), kernel_size: (5, 5), pad_mode: I64(2), pad: (0, 0, 0, 0), pad_list: (0, 0, 0, 0)} cnode_primal_attrs: {unique_id: "19273"}
+      : (<null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  %1(CNode_2319) = MakeTuple(%0, @?Conv2DBackpropInput_2320)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%1)
+      : (<null>)
+      #scope: (Default)
+}
+# Order:
+#   1: @Conv2DBackpropInput_1841:Conv2DBackpropInput{[0]: ValueNode<Primitive> Return, [1]: CNode_2319}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?PrimFunc_BiasAddGrad_2127 : 00000170848793D0
+
+subgraph @?PrimFunc_BiasAddGrad_2127 parent: [subgraph @PrimFunc_BiasAddGrad_1875](%para0_Parameter_2321) {
+  %0(CNode_2322) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2323) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_75_CNode_2125) = PrimFunc_BiasAddGrad(%para0_Parameter_2123, %para0_Parameter_2124) cnode_primal_attrs: {unique_id: "19463"}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2324) = BpropMetaFuncGraph_BpropMetaFuncGraphBiasAddGrad{BpropMetaFuncGraphBiasAddGrad}($(@PrimFunc_BiasAddGrad_1875:para0_Parameter_2123), $(@PrimFunc_BiasAddGrad_1875:para0_Parameter_2124), %2, %para0_Parameter_2321) cnode_primal_attrs: {forward_node_name: "BiasAddGrad_19463", forward_unique_id: "19463"}
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_BiasAddGrad)
+  %4(CNode_2325) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "BiasAddGrad_19463", forward_unique_id: "19463"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_BiasAddGrad)
+}
+# Order:
+#   1: @?PrimFunc_BiasAddGrad_2127:CNode_2326{[0]: ValueNode<Primitive> Return, [1]: CNode_2325}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?PrimFunc_Mul_2132 : 0000017084877270
+
+subgraph @?PrimFunc_Mul_2132 parent: [subgraph @PrimFunc_Mul_1805](%para0_Parameter_2327) {
+  %0(CNode_2328) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2329) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_76_CNode_2130) = PrimFunc_Mul(%para0_Parameter_2128, %para0_Parameter_2129) cnode_attrs: {convert_attr_node: Bool(1)} cnode_primal_attrs: {unique_id: "19477"}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2330) = BpropMetaFuncGraph_BpropMetaFuncGraphMul{BpropMetaFuncGraphMul}($(@PrimFunc_Mul_1805:para0_Parameter_2128), $(@PrimFunc_Mul_1805:para0_Parameter_2129), %2, %para0_Parameter_2327) cnode_primal_attrs: {forward_node_name: "Mul_19477", forward_unique_id: "19477"}
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_Mul)
+  %4(CNode_2331) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "Mul_19477", forward_unique_id: "19477"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_Mul)
+}
+# Order:
+#   1: @?PrimFunc_Mul_2132:CNode_2332{[0]: ValueNode<Primitive> Return, [1]: CNode_2331}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?PrimFunc_OnesLike_2136 : 0000017084877800
+
+subgraph @?PrimFunc_OnesLike_2136 parent: [subgraph @PrimFunc_OnesLike_1802](%para0_Parameter_2333) {
+  %0(CNode_2334) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2335) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_77_CNode_2134) = PrimFunc_OnesLike(%para0_Parameter_2133) cnode_primal_attrs: {unique_id: "19485"}
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2336) = BpropMetaFuncGraph_BpropMetaFuncGraphOnesLike{BpropMetaFuncGraphOnesLike}($(@PrimFunc_OnesLike_1802:para0_Parameter_2133), %2, %para0_Parameter_2333) cnode_primal_attrs: {forward_node_name: "OnesLike_19485", forward_unique_id: "19485"}
+      : (<null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_OnesLike)
+  %4(CNode_2337) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "OnesLike_19485", forward_unique_id: "19485"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_OnesLike)
+}
+# Order:
+#   1: @?PrimFunc_OnesLike_2136:CNode_2338{[0]: ValueNode<Primitive> Return, [1]: CNode_2337}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?SparseSoftmaxCrossEntropyWithLogits_2141 : 0000017084876750
+
+subgraph @?SparseSoftmaxCrossEntropyWithLogits_2141 parent: [subgraph @SparseSoftmaxCrossEntropyWithLogits_1797](%para0_Parameter_2339) {
+  %0(CNode_2340) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2341) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_78_CNode_2139) = SparseSoftmaxCrossEntropyWithLogits(%para0_Parameter_2137, %para0_Parameter_2138) primitive_attrs: {is_grad: Bool(1)} cnode_primal_attrs: {unique_id: "19475"}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2342) = BpropMetaFuncGraph_BpropMetaFuncGraphSparseSoftmaxCrossEntropyWithLogits{BpropMetaFuncGraphSparseSoftmaxCrossEntropyWithLogits}($(@SparseSoftmaxCrossEntropyWithLogits_1797:para0_Parameter_2137), $(@SparseSoftmaxCrossEntropyWithLogits_1797:para0_Parameter_2138), %2, %para0_Parameter_2339) cnode_primal_attrs: {forward_node_name: "SparseSoftmaxCrossEntropyWithLogits_19475", forward_unique_id: "19475"}
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_SparseSoftmaxCrossEntropyWithLogits)
+  %4(CNode_2343) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "SparseSoftmaxCrossEntropyWithLogits_19475", forward_unique_id: "19475"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_SparseSoftmaxCrossEntropyWithLogits)
+}
+# Order:
+#   1: @?SparseSoftmaxCrossEntropyWithLogits_2141:CNode_2344{[0]: ValueNode<Primitive> Return, [1]: CNode_2343}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?PrimFunc_BiasAdd_2147 : 00000170848761C0
+
+subgraph @?PrimFunc_BiasAdd_2147 parent: [subgraph @PrimFunc_BiasAdd_1793](%para0_Parameter_2345) {
+  %0(CNode_2346) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2347) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_111_CNode_2145) = PrimFunc_BiasAdd(%para0_Parameter_2142, %para0_Parameter_2143, %para0_Parameter_2144) {instance name: bias_add} primitive_attrs: {IsFeatureMapOutput: Bool(0), IsFeatureMapInputList: ()} cnode_primal_attrs: {unique_id: "19741"}
+      : (<null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2348) = BpropMetaFuncGraph_BpropMetaFuncGraphBiasAdd{BpropMetaFuncGraphBiasAdd}($(@PrimFunc_BiasAdd_1793:para0_Parameter_2142), $(@PrimFunc_BiasAdd_1793:para0_Parameter_2143), $(@PrimFunc_BiasAdd_1793:para0_Parameter_2144), %2, %para0_Parameter_2345) cnode_primal_attrs: {forward_node_name: "BiasAdd_19741", forward_unique_id: "19741"}
+      : (<null>, <null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_BiasAdd)
+  %4(CNode_2349) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "BiasAdd_19741", forward_unique_id: "19741"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_BiasAdd)
+}
+# Order:
+#   1: @?PrimFunc_BiasAdd_2147:CNode_2350{[0]: ValueNode<Primitive> Return, [1]: CNode_2349}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?PrimFunc_MatMul_2154 : 0000017084875C30
+
+subgraph @?PrimFunc_MatMul_2154 parent: [subgraph @PrimFunc_MatMul_1789](%para0_Parameter_2351) {
+  %0(CNode_2352) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2353) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_79_CNode_2152) = PrimFunc_MatMul(%para0_Parameter_2148, %para0_Parameter_2149, %para0_Parameter_2150, %para0_Parameter_2151) cnode_attrs: {is_knode: Bool(1)} cnode_primal_attrs: {unique_id: "19430"}
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2354) = BpropMetaFuncGraph_BpropMetaFuncGraphMatMul{BpropMetaFuncGraphMatMul}($(@PrimFunc_MatMul_1789:para0_Parameter_2148), $(@PrimFunc_MatMul_1789:para0_Parameter_2149), $(@PrimFunc_MatMul_1789:para0_Parameter_2150), $(@PrimFunc_MatMul_1789:para0_Parameter_2151), %2, %para0_Parameter_2351) cnode_primal_attrs: {forward_node_name: "MatMul_19430", forward_unique_id: "19430"}
+      : (<null>, <null>, <null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_MatMul)
+  %4(CNode_2355) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "MatMul_19430", forward_unique_id: "19430"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_MatMul)
+}
+# Order:
+#   1: @?PrimFunc_MatMul_2154:CNode_2356{[0]: ValueNode<Primitive> Return, [1]: CNode_2355}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?PrimFunc_ReLU_2158 : 00000170848756A0
+
+subgraph @?PrimFunc_ReLU_2158 parent: [subgraph @PrimFunc_ReLU_1785](%para0_Parameter_2357) {
+  %0(CNode_2358) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2359) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_80_CNode_2156) = PrimFunc_ReLU(%para0_Parameter_2155) cnode_attrs: {is_knode: Bool(1)} cnode_primal_attrs: {unique_id: "19414"}
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2360) = BpropMetaFuncGraph_BpropMetaFuncGraphReLU{BpropMetaFuncGraphReLU}($(@PrimFunc_ReLU_1785:para0_Parameter_2155), %2, %para0_Parameter_2357) cnode_primal_attrs: {forward_node_name: "ReLU_19414", forward_unique_id: "19414"}
+      : (<null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_ReLU)
+  %4(CNode_2361) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "ReLU_19414", forward_unique_id: "19414"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_ReLU)
+}
+# Order:
+#   1: @?PrimFunc_ReLU_2158:CNode_2362{[0]: ValueNode<Primitive> Return, [1]: CNode_2361}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?PrimFunc_BiasAdd_2164 : 0000017084873AD0
+
+subgraph @?PrimFunc_BiasAdd_2164 parent: [subgraph @PrimFunc_BiasAdd_1781](%para0_Parameter_2363) {
+  %0(CNode_2364) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2365) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_110_CNode_2162) = PrimFunc_BiasAdd(%para0_Parameter_2159, %para0_Parameter_2160, %para0_Parameter_2161) {instance name: bias_add} primitive_attrs: {IsFeatureMapOutput: Bool(0), IsFeatureMapInputList: ()} cnode_primal_attrs: {unique_id: "19739"}
+      : (<null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2366) = BpropMetaFuncGraph_BpropMetaFuncGraphBiasAdd{BpropMetaFuncGraphBiasAdd}($(@PrimFunc_BiasAdd_1781:para0_Parameter_2159), $(@PrimFunc_BiasAdd_1781:para0_Parameter_2160), $(@PrimFunc_BiasAdd_1781:para0_Parameter_2161), %2, %para0_Parameter_2363) cnode_primal_attrs: {forward_node_name: "BiasAdd_19739", forward_unique_id: "19739"}
+      : (<null>, <null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_BiasAdd)
+  %4(CNode_2367) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "BiasAdd_19739", forward_unique_id: "19739"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_BiasAdd)
+}
+# Order:
+#   1: @?PrimFunc_BiasAdd_2164:CNode_2368{[0]: ValueNode<Primitive> Return, [1]: CNode_2367}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?PrimFunc_MatMul_2171 : 0000017084872FB0
+
+subgraph @?PrimFunc_MatMul_2171 parent: [subgraph @PrimFunc_MatMul_1777](%para0_Parameter_2369) {
+  %0(CNode_2370) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2371) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_81_CNode_2169) = PrimFunc_MatMul(%para0_Parameter_2165, %para0_Parameter_2166, %para0_Parameter_2167, %para0_Parameter_2168) cnode_attrs: {is_knode: Bool(1)} cnode_primal_attrs: {unique_id: "19374"}
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2372) = BpropMetaFuncGraph_BpropMetaFuncGraphMatMul{BpropMetaFuncGraphMatMul}($(@PrimFunc_MatMul_1777:para0_Parameter_2165), $(@PrimFunc_MatMul_1777:para0_Parameter_2166), $(@PrimFunc_MatMul_1777:para0_Parameter_2167), $(@PrimFunc_MatMul_1777:para0_Parameter_2168), %2, %para0_Parameter_2369) cnode_primal_attrs: {forward_node_name: "MatMul_19374", forward_unique_id: "19374"}
+      : (<null>, <null>, <null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_MatMul)
+  %4(CNode_2373) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "MatMul_19374", forward_unique_id: "19374"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_MatMul)
+}
+# Order:
+#   1: @?PrimFunc_MatMul_2171:CNode_2374{[0]: ValueNode<Primitive> Return, [1]: CNode_2373}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?PrimFunc_ReLU_2175 : 0000017084870330
+
+subgraph @?PrimFunc_ReLU_2175 parent: [subgraph @PrimFunc_ReLU_1773](%para0_Parameter_2375) {
+  %0(CNode_2376) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2377) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_82_CNode_2173) = PrimFunc_ReLU(%para0_Parameter_2172) cnode_attrs: {is_knode: Bool(1)} cnode_primal_attrs: {unique_id: "19358"}
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2378) = BpropMetaFuncGraph_BpropMetaFuncGraphReLU{BpropMetaFuncGraphReLU}($(@PrimFunc_ReLU_1773:para0_Parameter_2172), %2, %para0_Parameter_2375) cnode_primal_attrs: {forward_node_name: "ReLU_19358", forward_unique_id: "19358"}
+      : (<null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_ReLU)
+  %4(CNode_2379) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "ReLU_19358", forward_unique_id: "19358"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_ReLU)
+}
+# Order:
+#   1: @?PrimFunc_ReLU_2175:CNode_2380{[0]: ValueNode<Primitive> Return, [1]: CNode_2379}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?PrimFunc_BiasAdd_2181 : 0000017084874B80
+
+subgraph @?PrimFunc_BiasAdd_2181 parent: [subgraph @PrimFunc_BiasAdd_1769](%para0_Parameter_2381) {
+  %0(CNode_2382) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2383) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_109_CNode_2179) = PrimFunc_BiasAdd(%para0_Parameter_2176, %para0_Parameter_2177, %para0_Parameter_2178) {instance name: bias_add} primitive_attrs: {IsFeatureMapOutput: Bool(0), IsFeatureMapInputList: ()} cnode_primal_attrs: {unique_id: "19737"}
+      : (<null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2384) = BpropMetaFuncGraph_BpropMetaFuncGraphBiasAdd{BpropMetaFuncGraphBiasAdd}($(@PrimFunc_BiasAdd_1769:para0_Parameter_2176), $(@PrimFunc_BiasAdd_1769:para0_Parameter_2177), $(@PrimFunc_BiasAdd_1769:para0_Parameter_2178), %2, %para0_Parameter_2381) cnode_primal_attrs: {forward_node_name: "BiasAdd_19737", forward_unique_id: "19737"}
+      : (<null>, <null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_BiasAdd)
+  %4(CNode_2385) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "BiasAdd_19737", forward_unique_id: "19737"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_BiasAdd)
+}
+# Order:
+#   1: @?PrimFunc_BiasAdd_2181:CNode_2386{[0]: ValueNode<Primitive> Return, [1]: CNode_2385}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?PrimFunc_MatMul_2188 : 000001708486FDA0
+
+subgraph @?PrimFunc_MatMul_2188 parent: [subgraph @PrimFunc_MatMul_1765](%para0_Parameter_2387) {
+  %0(CNode_2388) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2389) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_83_CNode_2186) = PrimFunc_MatMul(%para0_Parameter_2182, %para0_Parameter_2183, %para0_Parameter_2184, %para0_Parameter_2185) cnode_attrs: {is_knode: Bool(1)} cnode_primal_attrs: {unique_id: "19318"}
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2390) = BpropMetaFuncGraph_BpropMetaFuncGraphMatMul{BpropMetaFuncGraphMatMul}($(@PrimFunc_MatMul_1765:para0_Parameter_2182), $(@PrimFunc_MatMul_1765:para0_Parameter_2183), $(@PrimFunc_MatMul_1765:para0_Parameter_2184), $(@PrimFunc_MatMul_1765:para0_Parameter_2185), %2, %para0_Parameter_2387) cnode_primal_attrs: {forward_node_name: "MatMul_19318", forward_unique_id: "19318"}
+      : (<null>, <null>, <null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_MatMul)
+  %4(CNode_2391) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "MatMul_19318", forward_unique_id: "19318"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_MatMul)
+}
+# Order:
+#   1: @?PrimFunc_MatMul_2188:CNode_2392{[0]: ValueNode<Primitive> Return, [1]: CNode_2391}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?PrimFunc_Flatten_2192 : 00000170848713E0
+
+subgraph @?PrimFunc_Flatten_2192 parent: [subgraph @PrimFunc_Flatten_1761](%para0_Parameter_2393) {
+  %0(CNode_2394) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2395) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_108_CNode_2190) = PrimFunc_Flatten(%para0_Parameter_2189) primitive_attrs: {IsFeatureMapOutput: Bool(0), IsFeatureMapInputList: ()} cnode_primal_attrs: {unique_id: "19735"}
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2396) = BpropMetaFuncGraph_BpropMetaFuncGraphFlatten{BpropMetaFuncGraphFlatten}($(@PrimFunc_Flatten_1761:para0_Parameter_2189), %2, %para0_Parameter_2393) cnode_primal_attrs: {forward_node_name: "Flatten_19735", forward_unique_id: "19735"}
+      : (<null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_Flatten)
+  %4(CNode_2397) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "Flatten_19735", forward_unique_id: "19735"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_Flatten)
+}
+# Order:
+#   1: @?PrimFunc_Flatten_2192:CNode_2398{[0]: ValueNode<Primitive> Return, [1]: CNode_2397}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?MaxPool_2196 : 0000017084872A20
+
+subgraph @?MaxPool_2196 parent: [subgraph @MaxPool_1757](%para0_Parameter_2399) {
+  %0(CNode_2400) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2401) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_84_CNode_2194) = MaxPool(%para0_Parameter_2193) {instance name: max_pool} primitive_attrs: {kernel_size: (1, 1, 2, 2), input_names: [x], strides: (1, 1, 2, 2), pad_mode: I64(2), format: "NCHW", output_names: [output]} cnode_attrs: {is_knode: Bool(1)} cnode_primal_attrs: {unique_id: "19291"}
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2402) = BpropMetaFuncGraph_BpropMetaFuncGraphMaxPool{BpropMetaFuncGraphMaxPool}($(@MaxPool_1757:para0_Parameter_2193), %2, %para0_Parameter_2399) cnode_primal_attrs: {forward_node_name: "MaxPool_19291", forward_unique_id: "19291"}
+      : (<null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_MaxPool)
+  %4(CNode_2403) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "MaxPool_19291", forward_unique_id: "19291"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_MaxPool)
+}
+# Order:
+#   1: @?MaxPool_2196:CNode_2404{[0]: ValueNode<Primitive> Return, [1]: CNode_2403}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?PrimFunc_ReLU_2200 : 0000017084875110
+
+subgraph @?PrimFunc_ReLU_2200 parent: [subgraph @PrimFunc_ReLU_1753](%para0_Parameter_2405) {
+  %0(CNode_2406) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2407) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_85_CNode_2198) = PrimFunc_ReLU(%para0_Parameter_2197) cnode_attrs: {convert_attr_node: Bool(1), is_knode: Bool(1)} cnode_primal_attrs: {unique_id: "19281"}
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2408) = BpropMetaFuncGraph_BpropMetaFuncGraphReLU{BpropMetaFuncGraphReLU}($(@PrimFunc_ReLU_1753:para0_Parameter_2197), %2, %para0_Parameter_2405) cnode_primal_attrs: {forward_node_name: "ReLU_19281", forward_unique_id: "19281"}
+      : (<null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_ReLU)
+  %4(CNode_2409) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "ReLU_19281", forward_unique_id: "19281"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_ReLU)
+}
+# Order:
+#   1: @?PrimFunc_ReLU_2200:CNode_2410{[0]: ValueNode<Primitive> Return, [1]: CNode_2409}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?Conv2D_2205 : 0000017084874060
+
+subgraph @?Conv2D_2205 parent: [subgraph @Conv2D_1749](%para0_Parameter_2411) {
+  %0(CNode_2412) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2413) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_86_CNode_2203) = Conv2D(%para0_Parameter_2201, %para0_Parameter_2202) {instance name: conv2d} primitive_attrs: {out_channel: I64(16), kernel_size: (5, 5), group: I64(1), format: "NCHW", mode: I64(1), pad: (0, 0, 0, 0), pad_mode: I64(2), stride: (1, 1, 1, 1), dilation: (1, 1, 1, 1), input_names: [x, w], output_names: [output], groups: I64(1), pad_list: (0, 0, 0, 0)} cnode_attrs: {is_knode: Bool(1)} cnode_primal_attrs: {unique_id: "19267"}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2414) = BpropMetaFuncGraph_BpropMetaFuncGraphConv2D{BpropMetaFuncGraphConv2D}($(@Conv2D_1749:para0_Parameter_2201), $(@Conv2D_1749:para0_Parameter_2202), %2, %para0_Parameter_2411) cnode_primal_attrs: {forward_node_name: "Conv2D_19267", forward_unique_id: "19267"}
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_Conv2D)
+  %4(CNode_2415) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "Conv2D_19267", forward_unique_id: "19267"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_Conv2D)
+}
+# Order:
+#   1: @?Conv2D_2205:CNode_2416{[0]: ValueNode<Primitive> Return, [1]: CNode_2415}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?MaxPool_2209 : 000001708486D6B0
+
+subgraph @?MaxPool_2209 parent: [subgraph @MaxPool_1745](%para0_Parameter_2417) {
+  %0(CNode_2418) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2419) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_87_CNode_2207) = MaxPool(%para0_Parameter_2206) {instance name: max_pool} primitive_attrs: {kernel_size: (1, 1, 2, 2), input_names: [x], strides: (1, 1, 2, 2), pad_mode: I64(2), format: "NCHW", output_names: [output]} cnode_attrs: {is_knode: Bool(1)} cnode_primal_attrs: {unique_id: "19253"}
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2420) = BpropMetaFuncGraph_BpropMetaFuncGraphMaxPool{BpropMetaFuncGraphMaxPool}($(@MaxPool_1745:para0_Parameter_2206), %2, %para0_Parameter_2417) cnode_primal_attrs: {forward_node_name: "MaxPool_19253", forward_unique_id: "19253"}
+      : (<null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_MaxPool)
+  %4(CNode_2421) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "MaxPool_19253", forward_unique_id: "19253"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_MaxPool)
+}
+# Order:
+#   1: @?MaxPool_2209:CNode_2422{[0]: ValueNode<Primitive> Return, [1]: CNode_2421}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?PrimFunc_ReLU_2213 : 000001708486D120
+
+subgraph @?PrimFunc_ReLU_2213 parent: [subgraph @PrimFunc_ReLU_1741](%para0_Parameter_2423) {
+  %0(CNode_2424) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2425) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_88_CNode_2211) = PrimFunc_ReLU(%para0_Parameter_2210) cnode_attrs: {convert_attr_node: Bool(1), is_knode: Bool(1)} cnode_primal_attrs: {unique_id: "19243"}
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2426) = BpropMetaFuncGraph_BpropMetaFuncGraphReLU{BpropMetaFuncGraphReLU}($(@PrimFunc_ReLU_1741:para0_Parameter_2210), %2, %para0_Parameter_2423) cnode_primal_attrs: {forward_node_name: "ReLU_19243", forward_unique_id: "19243"}
+      : (<null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_ReLU)
+  %4(CNode_2427) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "ReLU_19243", forward_unique_id: "19243"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_ReLU)
+}
+# Order:
+#   1: @?PrimFunc_ReLU_2213:CNode_2428{[0]: ValueNode<Primitive> Return, [1]: CNode_2427}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?Conv2D_2218 : 000001708486CB90
+
+subgraph @?Conv2D_2218 parent: [subgraph @Conv2D_1736](%para0_Parameter_2429) {
+  %0(CNode_2430) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2431) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_89_CNode_2216) = Conv2D(%para0_Parameter_2214, %para0_Parameter_2215) {instance name: conv2d} primitive_attrs: {out_channel: I64(6), kernel_size: (5, 5), group: I64(1), format: "NCHW", mode: I64(1), pad: (0, 0, 0, 0), pad_mode: I64(2), stride: (1, 1, 1, 1), dilation: (1, 1, 1, 1), input_names: [x, w], output_names: [output], groups: I64(1), pad_list: (0, 0, 0, 0)} cnode_attrs: {is_knode: Bool(1)} cnode_primal_attrs: {unique_id: "19229"}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2432) = BpropMetaFuncGraph_BpropMetaFuncGraphConv2D{BpropMetaFuncGraphConv2D}($(@Conv2D_1736:para0_Parameter_2214), $(@Conv2D_1736:para0_Parameter_2215), %2, %para0_Parameter_2429) cnode_primal_attrs: {forward_node_name: "Conv2D_19229", forward_unique_id: "19229"}
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_Conv2D)
+  %4(CNode_2433) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "Conv2D_19229", forward_unique_id: "19229"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_Conv2D)
+}
+# Order:
+#   1: @?Conv2D_2218:CNode_2434{[0]: ValueNode<Primitive> Return, [1]: CNode_2433}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?PrimFunc_MatMul_2225 : 0000017084864BA0
+
+subgraph @?PrimFunc_MatMul_2225 parent: [subgraph @PrimFunc_MatMul_1872](%para0_Parameter_2435) {
+  %0(CNode_2436) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2437) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_90_CNode_2223) = PrimFunc_MatMul(%para0_Parameter_2219, %para0_Parameter_2220, %para0_Parameter_2221, %para0_Parameter_2222) cnode_attrs: {convert_attr_node: Bool(1)} cnode_primal_attrs: {unique_id: "19443"}
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2438) = BpropMetaFuncGraph_BpropMetaFuncGraphMatMul{BpropMetaFuncGraphMatMul}($(@PrimFunc_MatMul_1872:para0_Parameter_2219), $(@PrimFunc_MatMul_1872:para0_Parameter_2220), $(@PrimFunc_MatMul_1872:para0_Parameter_2221), $(@PrimFunc_MatMul_1872:para0_Parameter_2222), %2, %para0_Parameter_2435) cnode_primal_attrs: {forward_node_name: "MatMul_19443", forward_unique_id: "19443"}
+      : (<null>, <null>, <null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_MatMul)
+  %4(CNode_2439) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "MatMul_19443", forward_unique_id: "19443"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_MatMul)
+}
+# Order:
+#   1: @?PrimFunc_MatMul_2225:CNode_2440{[0]: ValueNode<Primitive> Return, [1]: CNode_2439}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?PrimFunc_BiasAddGrad_2230 : 000001708486C070
+
+subgraph @?PrimFunc_BiasAddGrad_2230 parent: [subgraph @PrimFunc_BiasAddGrad_1869](%para0_Parameter_2441) {
+  %0(CNode_2442) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2443) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_91_CNode_2228) = PrimFunc_BiasAddGrad(%para0_Parameter_2226, %para0_Parameter_2227) cnode_primal_attrs: {unique_id: "19407"}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2444) = BpropMetaFuncGraph_BpropMetaFuncGraphBiasAddGrad{BpropMetaFuncGraphBiasAddGrad}($(@PrimFunc_BiasAddGrad_1869:para0_Parameter_2226), $(@PrimFunc_BiasAddGrad_1869:para0_Parameter_2227), %2, %para0_Parameter_2441) cnode_primal_attrs: {forward_node_name: "BiasAddGrad_19407", forward_unique_id: "19407"}
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_BiasAddGrad)
+  %4(CNode_2445) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "BiasAddGrad_19407", forward_unique_id: "19407"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_BiasAddGrad)
+}
+# Order:
+#   1: @?PrimFunc_BiasAddGrad_2230:CNode_2446{[0]: ValueNode<Primitive> Return, [1]: CNode_2445}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?PrimFunc_ReluGrad_2235 : 00000170848693F0
+
+subgraph @?PrimFunc_ReluGrad_2235 parent: [subgraph @PrimFunc_ReluGrad_1813](%para0_Parameter_2447) {
+  %0(CNode_2448) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2449) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_92_CNode_2233) = PrimFunc_ReluGrad(%para0_Parameter_2231, %para0_Parameter_2232) cnode_attrs: {convert_attr_node: Bool(1)} cnode_primal_attrs: {unique_id: "19419"}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2450) = BpropMetaFuncGraph_BpropMetaFuncGraphReluGrad{BpropMetaFuncGraphReluGrad}($(@PrimFunc_ReluGrad_1813:para0_Parameter_2231), $(@PrimFunc_ReluGrad_1813:para0_Parameter_2232), %2, %para0_Parameter_2447) cnode_primal_attrs: {forward_node_name: "ReluGrad_19419", forward_unique_id: "19419"}
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_ReluGrad)
+  %4(CNode_2451) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "ReluGrad_19419", forward_unique_id: "19419"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_ReluGrad)
+}
+# Order:
+#   1: @?PrimFunc_ReluGrad_2235:CNode_2452{[0]: ValueNode<Primitive> Return, [1]: CNode_2451}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?PrimFunc_MatMul_2242 : 0000017084867820
+
+subgraph @?PrimFunc_MatMul_2242 parent: [subgraph @PrimFunc_MatMul_1809](%para0_Parameter_2453) {
+  %0(CNode_2454) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2455) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_93_CNode_2240) = PrimFunc_MatMul(%para0_Parameter_2236, %para0_Parameter_2237, %para0_Parameter_2238, %para0_Parameter_2239) cnode_attrs: {convert_attr_node: Bool(1)} cnode_primal_attrs: {unique_id: "19439"}
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2456) = BpropMetaFuncGraph_BpropMetaFuncGraphMatMul{BpropMetaFuncGraphMatMul}($(@PrimFunc_MatMul_1809:para0_Parameter_2236), $(@PrimFunc_MatMul_1809:para0_Parameter_2237), $(@PrimFunc_MatMul_1809:para0_Parameter_2238), $(@PrimFunc_MatMul_1809:para0_Parameter_2239), %2, %para0_Parameter_2453) cnode_primal_attrs: {forward_node_name: "MatMul_19439", forward_unique_id: "19439"}
+      : (<null>, <null>, <null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_MatMul)
+  %4(CNode_2457) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "MatMul_19439", forward_unique_id: "19439"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_MatMul)
+}
+# Order:
+#   1: @?PrimFunc_MatMul_2242:CNode_2458{[0]: ValueNode<Primitive> Return, [1]: CNode_2457}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?PrimFunc_MatMul_2249 : 0000017084866D00
+
+subgraph @?PrimFunc_MatMul_2249 parent: [subgraph @PrimFunc_MatMul_1866](%para0_Parameter_2459) {
+  %0(CNode_2460) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2461) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_94_CNode_2247) = PrimFunc_MatMul(%para0_Parameter_2243, %para0_Parameter_2244, %para0_Parameter_2245, %para0_Parameter_2246) cnode_attrs: {convert_attr_node: Bool(1)} cnode_primal_attrs: {unique_id: "19387"}
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2462) = BpropMetaFuncGraph_BpropMetaFuncGraphMatMul{BpropMetaFuncGraphMatMul}($(@PrimFunc_MatMul_1866:para0_Parameter_2243), $(@PrimFunc_MatMul_1866:para0_Parameter_2244), $(@PrimFunc_MatMul_1866:para0_Parameter_2245), $(@PrimFunc_MatMul_1866:para0_Parameter_2246), %2, %para0_Parameter_2459) cnode_primal_attrs: {forward_node_name: "MatMul_19387", forward_unique_id: "19387"}
+      : (<null>, <null>, <null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_MatMul)
+  %4(CNode_2463) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "MatMul_19387", forward_unique_id: "19387"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_MatMul)
+}
+# Order:
+#   1: @?PrimFunc_MatMul_2249:CNode_2464{[0]: ValueNode<Primitive> Return, [1]: CNode_2463}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?PrimFunc_BiasAddGrad_2254 : 0000017084868340
+
+subgraph @?PrimFunc_BiasAddGrad_2254 parent: [subgraph @PrimFunc_BiasAddGrad_1863](%para0_Parameter_2465) {
+  %0(CNode_2466) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2467) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_95_CNode_2252) = PrimFunc_BiasAddGrad(%para0_Parameter_2250, %para0_Parameter_2251) cnode_primal_attrs: {unique_id: "19351"}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2468) = BpropMetaFuncGraph_BpropMetaFuncGraphBiasAddGrad{BpropMetaFuncGraphBiasAddGrad}($(@PrimFunc_BiasAddGrad_1863:para0_Parameter_2250), $(@PrimFunc_BiasAddGrad_1863:para0_Parameter_2251), %2, %para0_Parameter_2465) cnode_primal_attrs: {forward_node_name: "BiasAddGrad_19351", forward_unique_id: "19351"}
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_BiasAddGrad)
+  %4(CNode_2469) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "BiasAddGrad_19351", forward_unique_id: "19351"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_BiasAddGrad)
+}
+# Order:
+#   1: @?PrimFunc_BiasAddGrad_2254:CNode_2470{[0]: ValueNode<Primitive> Return, [1]: CNode_2469}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?PrimFunc_ReluGrad_2259 : 000001708486A4A0
+
+subgraph @?PrimFunc_ReluGrad_2259 parent: [subgraph @PrimFunc_ReluGrad_1821](%para0_Parameter_2471) {
+  %0(CNode_2472) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2473) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_96_CNode_2257) = PrimFunc_ReluGrad(%para0_Parameter_2255, %para0_Parameter_2256) cnode_attrs: {convert_attr_node: Bool(1)} cnode_primal_attrs: {unique_id: "19363"}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2474) = BpropMetaFuncGraph_BpropMetaFuncGraphReluGrad{BpropMetaFuncGraphReluGrad}($(@PrimFunc_ReluGrad_1821:para0_Parameter_2255), $(@PrimFunc_ReluGrad_1821:para0_Parameter_2256), %2, %para0_Parameter_2471) cnode_primal_attrs: {forward_node_name: "ReluGrad_19363", forward_unique_id: "19363"}
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_ReluGrad)
+  %4(CNode_2475) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "ReluGrad_19363", forward_unique_id: "19363"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_ReluGrad)
+}
+# Order:
+#   1: @?PrimFunc_ReluGrad_2259:CNode_2476{[0]: ValueNode<Primitive> Return, [1]: CNode_2475}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?PrimFunc_MatMul_2266 : 0000017084864080
+
+subgraph @?PrimFunc_MatMul_2266 parent: [subgraph @PrimFunc_MatMul_1817](%para0_Parameter_2477) {
+  %0(CNode_2478) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2479) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_97_CNode_2264) = PrimFunc_MatMul(%para0_Parameter_2260, %para0_Parameter_2261, %para0_Parameter_2262, %para0_Parameter_2263) cnode_attrs: {convert_attr_node: Bool(1)} cnode_primal_attrs: {unique_id: "19383"}
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2480) = BpropMetaFuncGraph_BpropMetaFuncGraphMatMul{BpropMetaFuncGraphMatMul}($(@PrimFunc_MatMul_1817:para0_Parameter_2260), $(@PrimFunc_MatMul_1817:para0_Parameter_2261), $(@PrimFunc_MatMul_1817:para0_Parameter_2262), $(@PrimFunc_MatMul_1817:para0_Parameter_2263), %2, %para0_Parameter_2477) cnode_primal_attrs: {forward_node_name: "MatMul_19383", forward_unique_id: "19383"}
+      : (<null>, <null>, <null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_MatMul)
+  %4(CNode_2481) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "MatMul_19383", forward_unique_id: "19383"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_MatMul)
+}
+# Order:
+#   1: @?PrimFunc_MatMul_2266:CNode_2482{[0]: ValueNode<Primitive> Return, [1]: CNode_2481}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?PrimFunc_MatMul_2273 : 0000017084868E60
+
+subgraph @?PrimFunc_MatMul_2273 parent: [subgraph @PrimFunc_MatMul_1860](%para0_Parameter_2483) {
+  %0(CNode_2484) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2485) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_98_CNode_2271) = PrimFunc_MatMul(%para0_Parameter_2267, %para0_Parameter_2268, %para0_Parameter_2269, %para0_Parameter_2270) cnode_attrs: {convert_attr_node: Bool(1)} cnode_primal_attrs: {unique_id: "19331"}
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2486) = BpropMetaFuncGraph_BpropMetaFuncGraphMatMul{BpropMetaFuncGraphMatMul}($(@PrimFunc_MatMul_1860:para0_Parameter_2267), $(@PrimFunc_MatMul_1860:para0_Parameter_2268), $(@PrimFunc_MatMul_1860:para0_Parameter_2269), $(@PrimFunc_MatMul_1860:para0_Parameter_2270), %2, %para0_Parameter_2483) cnode_primal_attrs: {forward_node_name: "MatMul_19331", forward_unique_id: "19331"}
+      : (<null>, <null>, <null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_MatMul)
+  %4(CNode_2487) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "MatMul_19331", forward_unique_id: "19331"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_MatMul)
+}
+# Order:
+#   1: @?PrimFunc_MatMul_2273:CNode_2488{[0]: ValueNode<Primitive> Return, [1]: CNode_2487}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?Conv2DBackpropFilter_2279 : 0000017084866770
+
+subgraph @?Conv2DBackpropFilter_2279 parent: [subgraph @Conv2DBackpropFilter_1857](%para0_Parameter_2489) {
+  %0(CNode_2490) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2491) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_99_CNode_2277) = Conv2DBackpropFilter(%para0_Parameter_2274, %para0_Parameter_2275, %para0_Parameter_2276) primitive_attrs: {group: I64(1), input_names: (out_backprop, input, filter_sizes), output_names: (output), format: "NCHW", mode: I64(1), dilation: (1, 1, 1, 1), stride: (1, 1, 1, 1), groups: I64(1), data_format: "NCHW", out_channel: I64(16), kernel_size: (5, 5), pad_mode: I64(2), pad: (0, 0, 0, 0), pad_list: (0, 0, 0, 0)} cnode_primal_attrs: {unique_id: "19276"}
+      : (<null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2492) = BpropMetaFuncGraph_BpropMetaFuncGraphConv2DBackpropFilter{BpropMetaFuncGraphConv2DBackpropFilter}($(@Conv2DBackpropFilter_1857:para0_Parameter_2274), $(@Conv2DBackpropFilter_1857:para0_Parameter_2275), $(@Conv2DBackpropFilter_1857:para0_Parameter_2276), %2, %para0_Parameter_2489) cnode_primal_attrs: {forward_node_name: "Conv2DBackpropFilter_19276", forward_unique_id: "19276"}
+      : (<null>, <null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_Conv2DBackpropFilter)
+  %4(CNode_2493) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "Conv2DBackpropFilter_19276", forward_unique_id: "19276"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_Conv2DBackpropFilter)
+}
+# Order:
+#   1: @?Conv2DBackpropFilter_2279:CNode_2494{[0]: ValueNode<Primitive> Return, [1]: CNode_2493}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?PrimFunc_ReluGrad_2284 : 0000017084867DB0
+
+subgraph @?PrimFunc_ReluGrad_2284 parent: [subgraph @PrimFunc_ReluGrad_1837](%para0_Parameter_2495) {
+  %0(CNode_2496) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2497) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_100_CNode_2282) = PrimFunc_ReluGrad(%para0_Parameter_2280, %para0_Parameter_2281) cnode_attrs: {convert_attr_node: Bool(1)} cnode_primal_attrs: {unique_id: "19286"}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2498) = BpropMetaFuncGraph_BpropMetaFuncGraphReluGrad{BpropMetaFuncGraphReluGrad}($(@PrimFunc_ReluGrad_1837:para0_Parameter_2280), $(@PrimFunc_ReluGrad_1837:para0_Parameter_2281), %2, %para0_Parameter_2495) cnode_primal_attrs: {forward_node_name: "ReluGrad_19286", forward_unique_id: "19286"}
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_ReluGrad)
+  %4(CNode_2499) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "ReluGrad_19286", forward_unique_id: "19286"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_ReluGrad)
+}
+# Order:
+#   1: @?PrimFunc_ReluGrad_2284:CNode_2500{[0]: ValueNode<Primitive> Return, [1]: CNode_2499}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?MaxPoolGrad_2290 : 000001707B1805A0
+
+subgraph @?MaxPoolGrad_2290 parent: [subgraph @MaxPoolGrad_1833](%para0_Parameter_2501) {
+  %0(CNode_2502) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2503) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_101_CNode_2288) = MaxPoolGrad(%para0_Parameter_2285, %para0_Parameter_2286, %para0_Parameter_2287) primitive_attrs: {input_names: (x_origin, out_origin, grad), kernel_size: (1, 1, 2, 2), output_names: (output), strides: (1, 1, 2, 2), pad_mode: I64(2), data_format: "NCHW", format: "NCHW"} cnode_primal_attrs: {unique_id: "19296"}
+      : (<null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2504) = BpropMetaFuncGraph_BpropMetaFuncGraphMaxPoolGrad{BpropMetaFuncGraphMaxPoolGrad}($(@MaxPoolGrad_1833:para0_Parameter_2285), $(@MaxPoolGrad_1833:para0_Parameter_2286), $(@MaxPoolGrad_1833:para0_Parameter_2287), %2, %para0_Parameter_2501) cnode_primal_attrs: {forward_node_name: "MaxPoolGrad_19296", forward_unique_id: "19296"}
+      : (<null>, <null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_MaxPoolGrad)
+  %4(CNode_2505) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "MaxPoolGrad_19296", forward_unique_id: "19296"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_MaxPoolGrad)
+}
+# Order:
+#   1: @?MaxPoolGrad_2290:CNode_2506{[0]: ValueNode<Primitive> Return, [1]: CNode_2505}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?PrimFunc_Reshape_2295 : 000001707B17F4F0
+
+subgraph @?PrimFunc_Reshape_2295 parent: [subgraph @PrimFunc_Reshape_1829](%para0_Parameter_2507) {
+  %0(CNode_2508) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2509) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_102_CNode_2293) = PrimFunc_Reshape(%para0_Parameter_2291, %para0_Parameter_2292) cnode_attrs: {convert_attr_node: Bool(1)} cnode_primal_attrs: {unique_id: "19307"}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2510) = BpropMetaFuncGraph_BpropMetaFuncGraphReshape{BpropMetaFuncGraphReshape}($(@PrimFunc_Reshape_1829:para0_Parameter_2291), $(@PrimFunc_Reshape_1829:para0_Parameter_2292), %2, %para0_Parameter_2507) cnode_primal_attrs: {forward_node_name: "Reshape_19307", forward_unique_id: "19307"}
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_Reshape)
+  %4(CNode_2511) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "Reshape_19307", forward_unique_id: "19307"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_Reshape)
+}
+# Order:
+#   1: @?PrimFunc_Reshape_2295:CNode_2512{[0]: ValueNode<Primitive> Return, [1]: CNode_2511}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?PrimFunc_MatMul_2302 : 000001707B17E9D0
+
+subgraph @?PrimFunc_MatMul_2302 parent: [subgraph @PrimFunc_MatMul_1825](%para0_Parameter_2513) {
+  %0(CNode_2514) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2515) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_103_CNode_2300) = PrimFunc_MatMul(%para0_Parameter_2296, %para0_Parameter_2297, %para0_Parameter_2298, %para0_Parameter_2299) cnode_attrs: {convert_attr_node: Bool(1)} cnode_primal_attrs: {unique_id: "19327"}
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2516) = BpropMetaFuncGraph_BpropMetaFuncGraphMatMul{BpropMetaFuncGraphMatMul}($(@PrimFunc_MatMul_1825:para0_Parameter_2296), $(@PrimFunc_MatMul_1825:para0_Parameter_2297), $(@PrimFunc_MatMul_1825:para0_Parameter_2298), $(@PrimFunc_MatMul_1825:para0_Parameter_2299), %2, %para0_Parameter_2513) cnode_primal_attrs: {forward_node_name: "MatMul_19327", forward_unique_id: "19327"}
+      : (<null>, <null>, <null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_MatMul)
+  %4(CNode_2517) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "MatMul_19327", forward_unique_id: "19327"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_MatMul)
+}
+# Order:
+#   1: @?PrimFunc_MatMul_2302:CNode_2518{[0]: ValueNode<Primitive> Return, [1]: CNode_2517}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?Conv2DBackpropFilter_2308 : 000001707B180010
+
+subgraph @?Conv2DBackpropFilter_2308 parent: [subgraph @Conv2DBackpropFilter_1853](%para0_Parameter_2519) {
+  %0(CNode_2520) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2521) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_104_CNode_2306) = Conv2DBackpropFilter(%para0_Parameter_2303, %para0_Parameter_2304, %para0_Parameter_2305) primitive_attrs: {group: I64(1), input_names: (out_backprop, input, filter_sizes), output_names: (output), format: "NCHW", mode: I64(1), dilation: (1, 1, 1, 1), stride: (1, 1, 1, 1), groups: I64(1), data_format: "NCHW", out_channel: I64(6), kernel_size: (5, 5), pad_mode: I64(2), pad: (0, 0, 0, 0), pad_list: (0, 0, 0, 0)} cnode_primal_attrs: {unique_id: "19238"}
+      : (<null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2522) = BpropMetaFuncGraph_BpropMetaFuncGraphConv2DBackpropFilter{BpropMetaFuncGraphConv2DBackpropFilter}($(@Conv2DBackpropFilter_1853:para0_Parameter_2303), $(@Conv2DBackpropFilter_1853:para0_Parameter_2304), $(@Conv2DBackpropFilter_1853:para0_Parameter_2305), %2, %para0_Parameter_2519) cnode_primal_attrs: {forward_node_name: "Conv2DBackpropFilter_19238", forward_unique_id: "19238"}
+      : (<null>, <null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_Conv2DBackpropFilter)
+  %4(CNode_2523) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "Conv2DBackpropFilter_19238", forward_unique_id: "19238"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_Conv2DBackpropFilter)
+}
+# Order:
+#   1: @?Conv2DBackpropFilter_2308:CNode_2524{[0]: ValueNode<Primitive> Return, [1]: CNode_2523}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?PrimFunc_ReluGrad_2313 : 000001707B17D920
+
+subgraph @?PrimFunc_ReluGrad_2313 parent: [subgraph @PrimFunc_ReluGrad_1849](%para0_Parameter_2525) {
+  %0(CNode_2526) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2527) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_105_CNode_2311) = PrimFunc_ReluGrad(%para0_Parameter_2309, %para0_Parameter_2310) cnode_attrs: {convert_attr_node: Bool(1)} cnode_primal_attrs: {unique_id: "19248"}
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2528) = BpropMetaFuncGraph_BpropMetaFuncGraphReluGrad{BpropMetaFuncGraphReluGrad}($(@PrimFunc_ReluGrad_1849:para0_Parameter_2309), $(@PrimFunc_ReluGrad_1849:para0_Parameter_2310), %2, %para0_Parameter_2525) cnode_primal_attrs: {forward_node_name: "ReluGrad_19248", forward_unique_id: "19248"}
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_ReluGrad)
+  %4(CNode_2529) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "ReluGrad_19248", forward_unique_id: "19248"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_ReluGrad)
+}
+# Order:
+#   1: @?PrimFunc_ReluGrad_2313:CNode_2530{[0]: ValueNode<Primitive> Return, [1]: CNode_2529}
+
+
+subgraph attr:
+meta_fg_bprop: 1
+subgraph instance: ?Conv2DBackpropInput_2320 : 000001707B178020
+
+subgraph @?Conv2DBackpropInput_2320 parent: [subgraph @Conv2DBackpropInput_1841](%para0_Parameter_2531) {
+  %0(CNode_2532) = EnvironCreate()
+      #scope: (Default)
+  %1(CNode_2533) = MakeTuple(%0)
+      : (<null>) -> (<null>)
+      #scope: (Default)
+  %2(equiv_107_CNode_2318) = Conv2DBackpropInput(%para0_Parameter_2315, %para0_Parameter_2316, %para0_Parameter_2317) primitive_attrs: {group: I64(1), input_names: (out_backprop, filter, input_sizes), output_names: (output), format: "NCHW", mode: I64(1), dilation: (1, 1, 1, 1), stride: (1, 1, 1, 1), groups: I64(1), data_format: "NCHW", out_channel: I64(16), kernel_size: (5, 5), pad_mode: I64(2), pad: (0, 0, 0, 0), pad_list: (0, 0, 0, 0)} cnode_primal_attrs: {unique_id: "19273"}
+      : (<null>, <null>, <null>) -> (<null>)
+      #scope: (Default)
+  %3(CNode_2534) = BpropMetaFuncGraph_BpropMetaFuncGraphConv2DBackpropInput{BpropMetaFuncGraphConv2DBackpropInput}($(@Conv2DBackpropInput_1841:para0_Parameter_2315), $(@Conv2DBackpropInput_1841:para0_Parameter_2316), $(@Conv2DBackpropInput_1841:para0_Parameter_2317), %2, %para0_Parameter_2531) cnode_primal_attrs: {forward_node_name: "Conv2DBackpropInput_19273", forward_unique_id: "19273"}
+      : (<null>, <null>, <null>, <null>, <null>) -> (<null>)
+      #scope: (Gradients/Default/Grad_Conv2DBackpropInput)
+  %4(CNode_2535) = TupleAdd_tuple_add(%1, %3)
+      : (<null>, <null>) -> (<null>)
+      #scope: (Default)
+  Return(%4) cnode_primal_attrs: {forward_node_name: "Conv2DBackpropInput_19273", forward_unique_id: "19273"}
+      : (<null>)
+      #scope: (Gradients/Default/Grad_Conv2DBackpropInput)
+}
+# Order:
+#   1: @?Conv2DBackpropInput_2320:CNode_2536{[0]: ValueNode<Primitive> Return, [1]: CNode_2535}
+
+
